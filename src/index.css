@@ -1,0 +1,54 @@
+@font-face {
+
+	font-family: 'Ribeye', cursive;
+
+
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+body {
+
+	background-color: rgba(99, 203, 225, 0.5);
+	color: white;
+	font-family: 'Ribeye', sans-serif;
+	padding: 0;
+	margin: 0;
+	
+}
+
+a, li {
+	text-decoration: none;
+	color: white;
+	list-style-type: none;
+}
+
+/*.menu {
+	display: flex;
+	width: 100%;
+	height: 100px;
+	flex-wrap: nowrap;
+} */
+
+.imgNd {
+	height: 200px;
+	width: 50%;
+}
+
+.menu {
+
+}
+
+.conteneurOngletMenu {
+
+	height: 40px;
+	width: 50%;
+	background-color: black;
+	
+}
+
+.ongletMenu {
+	display: flex;
+	justify-content: space-around;
+}
