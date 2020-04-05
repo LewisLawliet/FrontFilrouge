@@ -33,17 +33,18 @@ a, li {
 
 .imgNd {
 	height: 200px;
-	width: 50%;
+	width: 700px;
 }
 
 .menu {
-
+	display: flex;
+	width: 100%;
 }
 
 .conteneurOngletMenu {
 
 	height: 40px;
-	width: 50%;
+	width: 700px;
 	background-color: black;
 	
 }
@@ -51,4 +52,41 @@ a, li {
 .ongletMenu {
 	display: flex;
 	justify-content: space-around;
+}
+
+.imglogo {
+	width: 150px;
+	height: 150px;
+}
+
+.menu2 {
+	display: flex;
+	width: 100%;
+}
+
+.logo {
+
+	margin-left: 5%;
+}
+
+.imgEtOngletMenu {
+
+	padding-left: 12%;
+}
+
+
+.menuF {
+	height: 90px;
+	background-color: black;
+}
+
+.ulFooter {
+	display: flex;
+	justify-content: space-around;
+	height: 70px;
+	align-items: center;
+}
+
+.homeConteneur {
+	height: 69vh;
 }

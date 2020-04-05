@@ -6,19 +6,19 @@ class Footer extends React.Component {
         return (
 
 
-           <header>
-			<div className ="menu">
+           <footer>
+			<div className ="menuF">
 			
 				
-					<ul>
+					<ul className ="ulFooter">
 						<li><a href="">Apropos</a></li>
 						<li><a href="">Mentions légales</a></li>
 						<li><a href="">Contact</a></li>
 						
 					</ul>
 			</div>
-			<hr/>
-		</header>
+		
+		</footer>
         );
     }
 }
