@@ -6,7 +6,14 @@ class Video extends React.Component {
         return (
 
         <div>	
-        		
+        		<video loop autoplay className="JapanVideo">
+
+              <source src="./images/JapanBackground.webm" />
+              <source src="" />
+              <source src="" />
+
+            </video>
+
 
 		         
 		</div>	
