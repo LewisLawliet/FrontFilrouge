@@ -88,13 +88,18 @@ a, li {
 }
 
 .homeConteneur {
-	height: 69vh;
+	height: 1300px;
 	width: 100%;
 }
 
 .JapanVideo {
-
+	
 	
 	/*height: 10px;
 	width: 100%; */
+}
+
+.videoConteneur {
+
+	width: 100%;
 }

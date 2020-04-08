@@ -5,15 +5,15 @@ class Video extends React.Component {
     render() {
         return (
 
-        <div>	
-        		<video loop autoplay className="JapanVideo">
+        <div className="videoConteneur">	
+        		
+            <video autoplay width="100%" height="300px" className="JapanVideo" loop>
 
-              <source src="./images/JapanBackground.webm" />
-              <source src="" />
-              <source src="" />
+            <source src="./images/JapanBackground.webm" />
+            
 
+    
             </video>
-
 
 		         
 		</div>	
