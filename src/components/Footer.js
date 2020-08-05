@@ -1,5 +1,8 @@
 import React from 'react';
 import '../index.css';
+import MentionsLegales from './MentionsLegales';
+import { Link } from 'react-router-dom';
+
 
 class Footer extends React.Component {
     render() {
@@ -11,9 +14,9 @@ class Footer extends React.Component {
 			
 				
 					<ul className ="ulFooter">
-						<li><a href="">Apropos</a></li>
-						<li><a href="">Mentions légales</a></li>
-						<li><a href="">Contact</a></li>
+						<li><Link to="/Apropos">Apropos</Link></li>
+						<li><Link to="/MentionsLegales">Mentions légales</Link></li>
+						<li><Link to="/contact">Contact</Link></li>
 						
 					</ul>
 			</div>

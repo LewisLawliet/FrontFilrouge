@@ -18,6 +18,8 @@ body {
 	
 }
 
+
+
 a, li {
 	text-decoration: none;
 	color: white;
@@ -33,21 +35,20 @@ a, li {
 
 .imgNd {
 	height: 200px;
-	width: 700px;
+	width: 697px;
 }
 
 .menu {
 	display: flex;
 	width: 100%;
+	
 }
 
 .conteneurOngletMenu {
 
-	height: 40px;
-	width: 700px;
-	background-color: black;
+	display: flex;
 	
-}
+} 
 
 .ongletMenu {
 	display: flex;
@@ -70,7 +71,7 @@ a, li {
 }
 
 .imgEtOngletMenu {
-
+	width: 698px;
 	padding-left: 12%;
 }
 
@@ -78,6 +79,7 @@ a, li {
 .menuF {
 	height: 90px;
 	background-color: black;
+	width: 100%
 }
 
 .ulFooter {
@@ -85,10 +87,11 @@ a, li {
 	justify-content: space-around;
 	height: 70px;
 	align-items: center;
+	widows: 100%
 }
 
 .homeConteneur {
-	height: 1300px;
+	height: 1200px;
 	width: 100%;
 }
 
@@ -99,7 +102,403 @@ a, li {
 	width: 100%; */
 }
 
-.videoConteneur {
+.imageConteneur {
 
 	width: 100%;
+	margin-top: 50px;
+}
+
+.imgJaponBackground {
+
+	width: 100%;
+	height: 507px
+}
+
+.background {
+
+}
+
+.MentionslegalesConteneur {
+	margin-top: 140px;
+	height: auto;
+	width: 75%;
+	background-color: #92A4E4;
+	border: 2px solid white;
+	margin-right: 5%;
+	margin-left: 8%;
+	padding-left: 3%;
+	padding-right: 3%;
+	font-size: 21px;
+}
+
+.contactConteneur {
+	margin-top: 140px;
+	height: auto;
+	width: 75%;
+	background-color: #92A4E4;
+	border: 2px solid white;
+	margin-right: 5%;
+	margin-left: 8%;
+	padding-left: 3%;
+	padding-right: 3%;
+	font-size: 21px;
+
+}
+
+.contactColor{
+	height: 400vh;
+	width: 70%;
+	background-color: black;
+}
+
+.AproposConteneur {
+	margin-top: 140px;
+	height: auto;
+	width: 75%;
+	background-color: #92A4E4;
+	border: 2px solid white;
+	margin-right: 5%;
+	margin-left: 8%;
+	padding-left: 3%;
+	padding-right: 3%;
+	font-size: 21px;
+}
+
+.buttonSignup {
+	width: 140px;
+	height: 45px;
+	background-color: black;
+	color: white;
+	font-family: 'Ribeye', cursive;
+	font-size: 15px;
+	cursor: pointer;
+} 
+
+.buttonLogin {
+	width: 140px;
+	height: 45px;
+	background-color: black;
+	color: white;
+	font-family: 'Ribeye', cursive;
+	font-size: 15px;
+	cursor: pointer;
+} 
+
+.buttonLogout {
+	width: 140px;
+	height: 45px;
+	background-color: black;
+	color: white;
+	font-family: 'Ribeye', cursive;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+/*button {
+
+	width: 140px;
+	height: 45px;
+	background-color: black;
+	color: white;
+	font-family: 'Ribeye', cursive;
+	font-size: 15px;
+} */
+
+.SocieteHandleClick {
+	display: flex;
+	border: none;
+	align-items: center;
+}
+
+.bouttonSociete {
+	width: 232px;
+	height: 45px;
+	background-color: black;
+	color: white;
+	font-family: 'Ribeye', cursive;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.bouttonCulturePop {
+	width: 232px;
+	height: 45px;
+	background-color: black;
+	color: white;
+	font-family: 'Ribeye', cursive;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.bouttonQuizz {
+	width: 232px;
+	height: 45px;
+	background-color: black;
+	color: white;
+	font-family: 'Ribeye', cursive;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+
+.societe {
+	width: 232px;
+	background-color: black;
+	height: 103px;
+	position: absolute;
+	top: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.culturePop {
+	width: 232px;
+	background-color: black;
+	height: 103px;
+	position: absolute;
+	top: 250px;
+	margin-left: 232px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.quizz {
+	width: 232px;
+	background-color: black;
+	height: 103px;
+	position: absolute;
+	top: 250px;
+	margin-left: 464px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.conteneurSystemeSco {
+	margin-top: 140px;
+	height: auto;
+	width: 75%;
+	background-color: #92A4E4;
+	border: 2px solid white;
+	margin-right: 5%;
+	margin-left: 8%;
+	padding-left: 3%;
+	padding-right: 3%;
+	font-size: 21px;
+	min-height: 700px;
+}
+
+.conteneurMondePro {
+	margin-top: 140px;
+	height: auto;
+	width: 75%;
+	background-color: #92A4E4;
+	border: 2px solid white;
+	margin-right: 5%;
+	margin-left: 8%;
+	padding-left: 3%;
+	padding-right: 3%;
+	font-size: 18px;
+} 
+
+.anecdoteTFrend {
+	display: flex;
+	margin-top: 93px;
+}
+
+.anecdoteCoto {
+	display: flex;
+	margin-top: 93px;
+	font-size: 21px;
+}
+
+.conteneurTechnologie {
+	margin-top: 140px;
+	height: auto;
+	width: 75%;
+	background-color: #92A4E4;
+	border: 2px solid white;
+	margin-right: 5%;
+	margin-left: 8%;
+	padding-left: 3%;
+	padding-right: 3%;
+	font-size: 21px;
+}
+
+.anecdoteAibo {
+	display: flex;
+	margin-top: 93px;
+	font-size: 21px;
+}
+
+.videoAibo {
+	width: 1000px;
+	height: 290px;
+}
+
+.conteneurGastronomie {
+	margin-top: 140px;
+	height: auto;
+	width: 75%;
+	background-color: #92A4E4;
+	border: 2px solid white;
+	margin-right: 5%;
+	margin-left: 8%;
+	padding-left: 3%;
+	padding-right: 3%;
+	font-size: 21px;
+}
+
+
+.anecdoteFugu {
+	display: flex;
+	margin-top: 93px;
+}
+
+.contourForm {
+	background-color: #92A4E4;
+	width: 140px;
+	height: 113px;
+	border-radius: 2px;
+}
+
+/*@media screen and (min-width: 304px) and (max-width: 1280px)
+{
+    .imgEtOngletMenu
+    {
+        margin-right: 13%;
+    }
+} */
+
+
+.champsForm {
+
+	width: 120px;
+	height: 23px;
+	border-radius: 4px;
+	margin-left: 4%;
+	font-family: 'Ribeye', sans-serif;
+}
+
+
+.buttonConteneur {
+	margin-bottom: 13px;
+	margin-left: 5%;
+}
+
+.buttonConteneur2 {
+	margin-left: 5%;
+}
+
+.envoyer {
+
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	font-family: 'Ribeye', sans-serif;
+	cursor: pointer;
+}
+
+.cercleVert {
+	height: 10px;
+	width: 10px;
+	background-color: #19EA25;
+	border-radius: 50%;
+	margin-right: 1vh;
+	margin-top: 1vh;
+
+}
+
+
+.cercleRouge {
+	height: 10px;
+	width: 10px;
+	background-color: #ff0000;
+	border-radius: 50%;
+	margin-right: 1vh;
+	margin-top: 1vh;
+}
+
+.title {
+	height: 40px;
+	width: 14%;
+}
+
+.contenu {
+	height: 500px;
+	width: 30%;
+}
+
+.msg {
+
+	width: 350px;
+	height: 115px;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 15px;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 322px;
+	left: 233px;
+}
+
+.msgP{
+	width: 80%;
+}
+
+
+.msgSuccess {
+	width: 350px;
+	height: 115px;
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 15px;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 322px;
+	left: 233px;
+	color: rgba(98, 220, 17);
+}
+
+.msgPSuccess {
+	width: 80%;
+}
+
+
+.wrongIdorPassword {
+	width: 350px;
+	height: 115px;
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 15px;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 322px;
+	left: 233px;
+	color: red;
+}
+
+.wrongIdorPasswordP {
+	width: 80%;
+}
+
+.wrongCross {
+	width: 30px;
+	height: 30px;
+}
+
+.conteneurBack {
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
