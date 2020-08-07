@@ -2,43 +2,153 @@ import React from "react";
 import "../index.css";
 
 class Gastronomie extends React.Component {
+	state={
+
+		affiché: true,			
+		articles: []
+
+	}
+
+	componentDidMount(){
+		this.articleGet()
+	}
+
+
+
+	articleGet(titleArticle, contenuArticle) {
+		
+
+		fetch("http://localhost:3200/api/culture-pop/gastronomie", {
+
+			method: "GET",			
+			
+			
+
+			headers: {
+				//"Content-Type": "application/json"
+				"Content-Type": "application/x-www-form-urlencoded"
+			}
+
+		
+		})
+
+
+		.then(res => {
+			if (res.status === 200) {
+				res.json().then(res => {
+					this.state.articles = res.article;
+					this.setState({...this.state.articles});//this.setState({article: res})
+					console.log(this.state.articles)
+					
+							
+				})
+				
+
+			}
+
+			else {
+
+				console.log("Article non get fréro")
+			
+			}
+		})
+
+		.catch(errors =>{
+			console.log(errors);
+		})
+			
+
+				
+	}
+
+	articleDelete(id) {
+		
+
+		fetch("http://localhost:3200/api/culture-pop/gastronomie/" + id, {
+
+			method: "DELETE",
+
+			headers: {
+				//"Content-Type": "application/json"
+				//'Access-Control-Request-Headers':'*',
+				"Content-Type": "application/x-www-form-urlencoded"
+			}			
+			
+		})
+
+
+		.then(res => {
+			if (res.status === 200) {
+				res.json().then(res => {
+					this.setState({article: res})
+					document.location.reload(true);					
+					console.log("Supprimé bro ^^")
+
+				})
+				
+				
+
+			}
+
+			else {
+
+				console.log("Article non supprimé fréro")
+			
+			}
+		})
+
+		.catch(errors =>{
+			console.log(errors);
+		}) 
+
+
+
+					
+
+				
+	} 
+
+ /*deleteOnclick = (_id) => {
+ 	
+ 	this.articleDelete(_id)
+ 	
+ }*/
+
+
+
+
 	render(){
 
-		return (
-			<div className="conteneurGastronomie">
-				<h1>Un poisson fatal</h1>
-				<div className="histoireFugu">
-				<p>
-	D’après le ministère de la Santé, du Travail et des Affaires sociales, plus de la moitié des décès consécutifs à une intoxication
- alimentaire au Japon sont dus au fugu. Chaque année, il est à l’origine d’une trentaine d’intoxications, dans lesquelles une 
- cinquantaine de personnes sont empoisonnées. La moitié n’y survivent pas.
+			const {articles} = this.state;		
+							
+			const articleFilter = articles.filter((article) => {
 
-Le poison à l’œuvre s’appelle la tétrodotoxine, et son danger connaît d’importantes variations en fonction du type de fugu ingéré, 
-et de la partie de la chair qui est consommée. La tétrodotoxine est généralement plus concentrée dans le foie, les ovaires et la peau,
- mais les parties comestibles varient selon le type de poisson. Une personne en ayant avalé ressentira vingt minutes à trois heures 
- plus tard d’abord un fourmillement, puis une paralysie qui s’étendra à l’ensemble du corps, pour finir par des difficultés 
- respiratoires qui causeront le décès. Les Japonais mangent du fugu malgré ce risque.
- Cadre légal
- Seuls les cuisiniers disposant d'une licence accordée par l'État sont autorisés à préparer ce plat
-  considéré comme très raffiné. Pour autant, pour une question de sécurité, l'empereur du Japon
-   tout comme les samouraïs n'avaient pas le droit d'en manger, une loi les en empêchant 
-   (cette loi étant toujours d'actualité pour l'empereur). Pour en retirer la toxine, il leur faut enlever
-    notamment la peau, le foie, les intestins et les gonades.
- 				</p>
- 				
- 				</div>
+			return article.categorie === "gastronomie"			
 
- 				<div className="anecdoteFugu">
- 				<p>En 1975, dans un restaurant de Kyoto, Bandō Mitsugorō VIII (un des plus célèbres acteurs de théâtre japonais) 
- 				voulut prouver à ses amis qu'il pouvait manger du foie de poisson globe, réputé pour son poison, 
- 				sans aucun problème !
-				Il mourut dans la nuit...</p>
-				<a href="https://www.youtube.com/watch?v=t3_Dbxtxb3U" target="_blank"  rel="noopener noreferrer">
-				<img src="./images/fugu.jpg" srcSet="./images/fugu.jpg 1200w" className ="imgFugu" /></a>
- 				</div>
+		})
 
+
+		
+		const map = articleFilter.map((articleFilter) => (
+
+					<div className="conteneurSystemeSco" key={articleFilter._id}>
+					  <h1>{articleFilter.titleArticle}</h1>
+					 <p>{articleFilter.contenuArticle}</p>
+					 <button onClick={this.articleDelete.bind(this, articleFilter._id)}>ERASE</button>
+					 </div>
+					 
+				)); 
+
+
+		
+
+		return ( 
+		
+			<div>						
+             {map}
+                      
+            	
 			</div>
-
 		);
 	}
 

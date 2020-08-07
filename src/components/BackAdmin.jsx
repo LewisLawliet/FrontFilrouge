@@ -150,7 +150,12 @@ if(!token){
 
 		fetch("http://localhost:3200/api/societe/systeme-sco/:id", {
 
-			method: "DELETE"			
+			method: "DELETE",
+
+			headers: {
+				//"Content-Type": "application/json"
+				"Content-Type": "application/x-www-form-urlencoded"
+			}			
 			
 		})
 
