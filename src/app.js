@@ -29,6 +29,12 @@ constructor(props){
 }
 
 
+componentDidMount(){
+
+    this.changeStateConnecte()
+}
+
+
 
     changeStateConnecte = () => {
 

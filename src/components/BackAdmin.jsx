@@ -15,11 +15,9 @@ state={
 
 	}
 
-/*const token = localStorage.getItem("jwt")
-if(!token){
-	this.props.history.push("/")
-} */	
-
+componentDidMount(){
+		this.articleGet()
+	}
 
 	
 
@@ -34,6 +32,15 @@ if(!token){
 	} 
 
 	
+	handleClickPut = e =>  {
+		//e.preventDefault();
+		//console.log(this.state);
+
+		const {titleArticle, contenuArticle, categorie} = this.state;
+		this.articlePut(titleArticle, contenuArticle, categorie);
+		this.setState({envoye: true })
+
+	} 
 
 
 
@@ -45,7 +52,7 @@ if(!token){
 	}
 
 	article(titleArticle, contenuArticle, categorie) {
-		
+		const test = "http://localhost:3200/api/societe/systeme-sco"
 
 		fetch("http://localhost:3200/api/societe/systeme-sco", {
 
@@ -90,12 +97,62 @@ if(!token){
 
 				
 	}
-	////////////////////////////////////////  PUT /////////////////////////////////////////////////////
 
-	articlePut(titleArticle, contenuArticle, categorie) {
+
+     //////////////////////////////////////// GET  ////////////////////////////////////////////////////
+     articleGet(titleArticle, contenuArticle) {
 		
 
-		fetch("http://localhost:3200/api/societe/systeme-sco/:id", {
+		fetch("http://localhost:3200/api/societe/systeme-sco", {
+
+			method: "GET",			
+			
+			
+
+			headers: {
+				//"Content-Type": "application/json"
+				"Content-Type": "application/x-www-form-urlencoded"
+			}
+
+		
+		})
+
+
+		.then(res => {
+			if (res.status === 200) {
+				res.json().then(res => {
+					this.state.articles = res.article;
+					this.setState({...this.state.articles});//this.setState({article: res})
+					console.log(this.state.articles)
+					
+							
+				})
+				
+
+			}
+
+			else {
+
+				console.log("Article non get fréro")
+			
+			}
+		})
+
+		.catch(errors =>{
+			console.log(errors);
+		})
+			
+
+				
+	}
+
+
+	////////////////////////////////////////  PUT /////////////////////////////////////////////////////
+
+	articlePut(id, titleArticle, contenuArticle, categorie) {
+		
+
+		fetch("http://localhost:3200/api/societe/systeme-sco/" + id, {
 
 			method: "PUT",			
 			
@@ -145,16 +202,18 @@ if(!token){
 
 	//////////////////////////////////DELETE/////////////////////////
 
-	articleDelete(titleArticle, contenuArticle) {
+	articleDelete(id) {
 		
 
-		fetch("http://localhost:3200/api/societe/systeme-sco/:id", {
+		fetch("http://localhost:3200/api/societe/systeme-sco/" + id, {
 
 			method: "DELETE",
 
 			headers: {
 				//"Content-Type": "application/json"
-				"Content-Type": "application/x-www-form-urlencoded"
+				//'Access-Control-Request-Headers':'*',
+				"Content-Type": "application/x-www-form-urlencoded",
+				//"Authorization": `bearer ${localStorage.getItem("jwt")}` 
 			}			
 			
 		})
@@ -162,8 +221,11 @@ if(!token){
 
 		.then(res => {
 			if (res.status === 200) {
-				res.json().then(res => {					
+				res.json().then(res => {
+					this.setState({article: res})
+					document.location.reload(true);					
 					console.log("Supprimé bro ^^")
+
 				})
 				
 				
@@ -181,26 +243,53 @@ if(!token){
 			console.log(errors);
 		}) 
 
-
-
-					
-
-				
-	} 
-
- deleteOnclick = (id) => {
- 	
- 	this.articleDelete(id)
- 	
- }
+	}	
 
 
     render() {
+
+    	const {articles} = this.state;		
+							
+			const articleFilter = articles.filter((article) => {
+
+			return article.categorie === "systeme-sco"			
+
+		})
+
+
+		
+		const map = articleFilter.map((articleFilter) => (
+
+					<div className="conteneurSystemeSco" key={articleFilter._id}>
+					  <h1>{articleFilter.titleArticle}</h1>
+
+					 <p>{articleFilter.contenuArticle}</p>
+
+					 <button onClick={this.articleDelete.bind(this, articleFilter._id)}>ERASE</button>
+					 
+			<form className="PutForm" onSubmit = {this.handleClickPut}>	 
+					 <input type="text" name="titleArticle" defaultValue={articleFilter.titleArticle}
+					  onChange={this.handleChange.bind(this)} />
+
+					 <textarea rows="30" name="contenuArticle"  defaultValue={articleFilter.contenuArticle}
+					 onChange={this.handleChange.bind(this)} />
+
+					 <input type="text" name="categorie" placeholder="categorie"
+				 onChange={this.handleChange.bind(this)} className="categorie"/>
+
+					 <button onClick={this.articlePut.bind(this, articleFilter._id)} >PUT</button>
+			</form>		 
+					 </div>
+					
+					 
+				)); 
+
+
         return (
 
 
            
-			<div className ="">
+			<div className ="postArticle">
 			
 				
 			<form className="conteneurBack" onSubmit={this.handleClick}>
@@ -219,12 +308,12 @@ if(!token){
 
 			<div>
 				
-
-				<button  onChange={this.handleChange.bind(this)}>GET</button>
+				{map}
+				{/*<button  onChange={this.handleChange.bind(this)}>GET</button>*/}
 				
 			</div> 
 
-				<button onClick={this.deleteOnclick.bind(this)} onChange={this.handleChange.bind(this)}>DELETE</button>
+				
 
 			</div>
 		

@@ -65,14 +65,15 @@ class SystemeSco extends React.Component {
 	articleDelete(id) {
 		
 
-		fetch("http://localhost:3200/api/societe/systeme-sco/" + id, {
+		fetch("http://localhost:3300/api/societe/systeme-sco/" + id, {
 
 			method: "DELETE",
 
 			headers: {
 				//"Content-Type": "application/json"
 				//'Access-Control-Request-Headers':'*',
-				"Content-Type": "application/x-www-form-urlencoded"
+				"Content-Type": "application/x-www-form-urlencoded",
+				//"Authorization": `bearer ${localStorage.getItem("jwt")}` 
 			}			
 			
 		})
@@ -136,6 +137,7 @@ class SystemeSco extends React.Component {
 					  <h1>{articleFilter.titleArticle}</h1>
 					 <p>{articleFilter.contenuArticle}</p>
 					 <button onClick={this.articleDelete.bind(this, articleFilter._id)}>ERASE</button>
+					 <input type="text" value={articleFilter.titleArticle} />
 					 </div>
 					 
 				)); 
