@@ -13,6 +13,7 @@ import  {  withRouter} from 'react-router-dom'
 class Home extends React.Component {
     state = {
 
+            users: [],
             wrongPasswordOrId: false,
             success: false,
             alreadyExist: false,
@@ -24,8 +25,10 @@ class Home extends React.Component {
 
     componentDidMount(){
        this.setState({checkToken: "Offline"})
-
+       this.userGet()
     }
+
+
 
     
 
@@ -124,7 +127,75 @@ class Home extends React.Component {
         this.setState({wrongPasswordOrId: true})
     }
 
+
+    userGet(admin, grade) {
+    
+
+    fetch("http://localhost:3200/api/button/admin", {
+
+      method: "GET",      
+      
+      
+
+      headers: {
+        //"Content-Type": "application/json"
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+
+    
+    })
+
+
+    .then(res => {
+      if (res.status === 200) {
+        res.json().then(res => {
+          this.state.users = res.user;
+          this.setState({user: res})//this.setState({...this.state.articles});
+          //console.log(this.state.users)
+          
+              
+        })
+        
+
+      }
+
+      else {
+
+        console.log("user non get fréro")
+      
+      }
+    })
+
+    .catch(errors =>{
+      console.log(errors);
+    })
+      
+
+        
+  }
+
     render() {
+
+
+          const {users} = this.state;    
+                  
+          const userFilter = users.filter((user) => {
+
+          return user.admin === true     
+
+        })
+
+         console.log(userFilter) 
+
+         const map = userFilter.map((userFilter) => (
+
+          
+
+          <button style={{marginLeft: "6%", marginTop: "7px"}} key={userFilter._id}>ADMIN</button>
+          
+           
+        )); 
+
        
        const message = (<div className ="msg"><p className="msgP">Il existe déjà un utilisateur 
        enregistré avec cette adresse e-mail !</p></div>)
@@ -158,7 +229,7 @@ class Home extends React.Component {
       {this.state.success ? successMessage : null}
       {this.state.wrongPasswordOrId ? passwordIdFailed : null}   
         
-	 
+	   {userFilter.checkLocalStorage ? map : null}
      
      <Image />	
        

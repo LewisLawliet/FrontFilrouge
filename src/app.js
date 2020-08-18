@@ -14,6 +14,10 @@ import QuizzSystemeSco from "./components/QuizzSystemeSco";
 import BackAdmin from "./components/BackAdmin";
 import ReactDom from 'react-dom';
 import { PropTypes } from 'react';
+import BackSystemeSco from "./components/BackSystemeSco";
+import BackMondePro from "./components/BackMondePro";
+import BackGastronomie from "./components/BackGastronomie";
+import BackTechnologie from "./components/BackTechnologie";
 
 
 class App extends React.Component {
@@ -70,8 +74,12 @@ componentDidMount(){
                     <Route path="/gastronomie" component={Gastronomie} />
                     <Route path="/technologie" component={Technologie} />
                     <Route path="/contact" component={Contact} />
-                    {/*<Route path="/systeme-sco" component={QuizzSystemeSco} />*/}
+                    <Route path="/quizz-systeme-sco" component={QuizzSystemeSco} />
                     <Route path="/baback" component={BackAdmin} />
+                    <Route path="/backsystemesco" component={BackSystemeSco} />
+                    <Route path="/backmondepro" component={BackMondePro} />
+                    <Route path="/backgastronomie" component={BackGastronomie} />
+                    <Route path="/backtechnologie" component={BackTechnologie} />
                 </Switch>
                 <Footer />
              

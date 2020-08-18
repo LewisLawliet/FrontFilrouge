@@ -9,7 +9,8 @@ class Contact extends React.Component {
         	<div className="contactColor">	
 	           <h1>Contact</h1>
 			   <p>Pour nous contacter, <br />envoie-nous un message à gaidjininforme@gmail.com </p>
-			   <img src="./images/email.png" srcSet="./images/email.png 1200w, ./images/email.png 1200h" className ="imgEmail" /> 
+			   <img src="./images/email.png" srcSet="./images/email.png 1200w, ./images/email.png 1200h"
+                alt="courriel" className ="imgEmail" /> 
 			</div>        
 		</div>	
         );

@@ -65,7 +65,7 @@ class SystemeSco extends React.Component {
 	articleDelete(id) {
 		
 
-		fetch("http://localhost:3300/api/societe/systeme-sco/" + id, {
+		fetch("http://localhost:3200/api/societe/systeme-sco/" + id, {
 
 			method: "DELETE",
 
@@ -136,13 +136,12 @@ class SystemeSco extends React.Component {
 					<div className="conteneurSystemeSco" key={articleFilter._id}>
 					  <h1>{articleFilter.titleArticle}</h1>
 					 <p>{articleFilter.contenuArticle}</p>
-					 <button onClick={this.articleDelete.bind(this, articleFilter._id)}>ERASE</button>
-					 <input type="text" value={articleFilter.titleArticle} />
+					
 					 </div>
 					 
 				)); 
 
-
+		console.log(articleFilter)
 		
 
 		return ( 

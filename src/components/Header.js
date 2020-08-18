@@ -75,7 +75,7 @@ class Header extends React.Component {
 	    		<div className="quizz">
 	    			
 	    			
-	    				<a href="http://localhost:3000/api/quizz/systeme-sco">Quizz Systeme-sco</a>
+	    				<Link to = "/quizz-systeme-sco">Quizz Systeme-sco</Link>
 	    				<Link to ="">Quizz Monde-pro</Link>
 	    				<Link to ="">Quizz Gastronomie</Link>
 	    				<Link to ="">Quizz Technologie</Link>
