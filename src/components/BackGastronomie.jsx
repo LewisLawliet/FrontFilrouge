@@ -1,17 +1,17 @@
 import React from 'react';
 import '../index.css';
-
+import { Link } from 'react-router-dom';
 
 
 class BackGastronomie extends React.Component {
 
 state={
 
-		envoyé:false,
-		titleArticle: "",
-		contenuArticle: "",
+		
+		titleArticle: "",				
 		articles: [],
-		affiché: false
+		contenuArticle: ""
+		
 
 	}
 
@@ -22,12 +22,12 @@ componentDidMount(){
 	
 
 	handleClick = e =>  {
-		//e.preventDefault();
+		e.preventDefault();
 		//console.log(this.state);
 
 		const {titleArticle, contenuArticle, categorie} = this.state;
 		this.article(titleArticle, contenuArticle, categorie);
-		this.setState({envoye: true })
+		
 
 	} 
 
@@ -35,18 +35,18 @@ componentDidMount(){
 	handleClickPut = e =>  {
 		e.preventDefault();
 		//console.log(this.state);
-
-		const {titleArticle, contenuArticle, categorie} = this.state;
-		this.articlePut(titleArticle, contenuArticle, categorie);
-		this.setState({envoye: true })
+		const articles = this.state;
+		//const {titleArticle, contenuArticle} = this.state;
+		//this.articlePut(titleArticle, contenuArticle);
+		
 
 	} 
 
 
 
 
-	handleChange(e) {
-		e.preventDefault();
+	handleChange = e => {
+		
 		this.setState({ [e.target.name]: e.target.value })
 
 	}
@@ -67,7 +67,8 @@ componentDidMount(){
 			}),
 
 			headers: {
-				"Content-Type": "application/json"
+				"Content-Type": "application/json",
+				"Authorization": `bearer ${localStorage.getItem("jwt")}`
 			}
 
 		
@@ -75,9 +76,10 @@ componentDidMount(){
 
 
 		.then(res => {
-			if (res.status === 200) {
-				res.json().then(res => {
+			if (res.status === 201) {
+				res.json().then(res => {					
 					console.log("Article posté")
+					this.articleGet()
 				})
 
 			}
@@ -100,7 +102,7 @@ componentDidMount(){
 
 
      //////////////////////////////////////// GET  ////////////////////////////////////////////////////
-     articleGet(titleArticle, contenuArticle) {
+     articleGet(titleArticle, contenuArticle, categorie) {
 		
 
 		fetch("http://localhost:3200/api/culture-pop/gastronomie", {
@@ -110,7 +112,7 @@ componentDidMount(){
 			
 
 			headers: {
-				//"Content-Type": "application/json"
+				"Content-Type": "application/json",
 				"Content-Type": "application/x-www-form-urlencoded"
 			}
 
@@ -149,26 +151,19 @@ componentDidMount(){
 
 	////////////////////////////////////////  PUT /////////////////////////////////////////////////////
 
-	articlePut(id, titleArticle, contenuArticle, categorie) {
+	articlePut(id, articles) {
 		
 
-		fetch("http://localhost:3200/api/societe/culture-pop/gastronomie/" + id, {
+		fetch("http://localhost:3200/api/societe/systeme-sco/" + id, {
 
 			method: "PUT",			
 			
-			body: {
-				
-				
-				titleArticle,
-				contenuArticle,
-				categorie
-			},  
+			body: new URLSearchParams (this.state),  
 
 			headers: {
 				"Content-Type": "application/json",
-				'Access-Control-Request-Headers':'*',
-				'Accept-encoding': 'gzip, deflate',
-				"Content-Type": "application/x-www-form-urlencoded"
+				"Content-Type": "application/x-www-form-urlencoded",
+				"Authorization": `bearer ${localStorage.getItem("jwt")}`
 			}
 
 		
@@ -179,6 +174,12 @@ componentDidMount(){
 			if (res.status === 200) {
 				res.json().then(res => {					
 					console.log("Puuut Article ^^")
+					//this.articleGet()					
+					console.log(id)
+					this.setState({titleArticle: ""})
+					this.setState({contenuArticle: ""})
+					this.articleGet()
+
 				})
 
 				
@@ -202,6 +203,7 @@ componentDidMount(){
 				
 	} 
 
+
 	//////////////////////////////////DELETE/////////////////////////
 
 	articleDelete(id) {
@@ -215,7 +217,7 @@ componentDidMount(){
 				//"Content-Type": "application/json"
 				//'Access-Control-Request-Headers':'*',
 				"Content-Type": "application/x-www-form-urlencoded",
-				//"Authorization": `bearer ${localStorage.getItem("jwt")}` 
+				"Authorization": `bearer ${localStorage.getItem("jwt")}` 
 			}			
 			
 		})
@@ -225,7 +227,7 @@ componentDidMount(){
 			if (res.status === 200) {
 				res.json().then(res => {
 					this.setState({article: res})
-					document.location.reload(true);					
+					this.articleGet();					
 					console.log("Supprimé bro ^^")
 
 				})
@@ -260,32 +262,32 @@ componentDidMount(){
 
 
 		
-		const map = articleFilter.map((articleFilter) => (
+	const map = articleFilter.map((articleFilter) => (
 
 					<div className="conteneurSystemeSco" key={articleFilter._id}>
 					  <h1>{articleFilter.titleArticle}</h1>
 
 					 <p>{articleFilter.contenuArticle}</p>
 
-					 <button onClick={this.articleDelete.bind(this, articleFilter._id)}>ERASE</button>
+					 <button className="eraseButton" onClick={this.articleDelete.bind(this, articleFilter._id)}>ERASE</button>
 					 
-			<form className="PutForm" onSubmit = {this.handleClickPut}>	 
+			<form className="PutForm" onSubmit={this.handleClickPut.bind(this)}>	 
 					 <input type="text" name="titleArticle" defaultValue={articleFilter.titleArticle}
-					  onChange={this.handleChange.bind(this)} />
+					  onChange={this.handleChange}  />
 
 					 <textarea rows="30" name="contenuArticle"  defaultValue={articleFilter.contenuArticle}
-					 onChange={this.handleChange.bind(this)} />
+					 onChange={this.handleChange}  />
 
-					 <input type="text" name="categorie" placeholder="categorie"
-				 onChange={this.handleChange.bind(this)} className="categorie"/>
+					 {/*<input type="text" name="categorie" defaultValue={articleFilter.categorie}
+				 onChange={this.handleChange.bind(this)}  />*/}
 
-					 <button onClick={this.articlePut.bind(this, articleFilter._id)} >PUT</button>
+					 <button onClick={this.articlePut.bind(this, articleFilter._id)}>PUT</button>
 			</form>		 
+			<Link className="ButtonRetourBaback" to="/baback">retour au menu</Link>
 					 </div>
 					
 					 
 				)); 
-
 
         return (
 

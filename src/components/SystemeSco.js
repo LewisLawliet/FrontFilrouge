@@ -17,8 +17,8 @@ class SystemeSco extends React.Component {
 
 
 	articleGet(titleArticle, contenuArticle) {
+		const jwt = localStorage.getItem("jwt")
 		
-
 		fetch("http://localhost:3200/api/societe/systeme-sco", {
 
 			method: "GET",			
@@ -26,8 +26,11 @@ class SystemeSco extends React.Component {
 			
 
 			headers: {
-				//"Content-Type": "application/json"
-				"Content-Type": "application/x-www-form-urlencoded"
+				"Content-Type": "application/json",
+				"Content-Type": "application/x-www-form-urlencoded",				
+				//"Authorization": `bearer ${localStorage.getItem("jwt")}` 
+				//"Authorization": `jwt`
+				 
 			}
 
 		

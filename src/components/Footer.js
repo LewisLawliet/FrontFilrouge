@@ -15,7 +15,7 @@ class Footer extends React.Component {
 				
 					<ul className ="ulFooter">
 						<li><Link to="/Apropos">Apropos</Link></li>
-						<li><Link to="/MentionsLegales">Mentions légales</Link></li>
+						<li><Link to="/mentions-legales">Mentions légales</Link></li>
 						<li><Link to="/contact">Contact</Link></li>
 						
 					</ul>

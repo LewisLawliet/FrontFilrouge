@@ -14,8 +14,8 @@ body {
 	color: white;
 	font-family: 'Ribeye', sans-serif;
 	padding: 0;
-	margin: 0;
-	
+	margin: auto;
+	width: 100%;
 }
 
 
@@ -528,4 +528,53 @@ a, li {
 	cursor: pointer;
 	font-size: 17px;
 	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.PutForm {
+	width: 100%;
+	height: 800px;
+	display: flex;
+	flex-direction: column;
+}
+
+/*.inputTitleArticleBack {
+
+	width: 300px;
+	height: 70px;
+}*/
+
+.eraseButton {
+
+	width: 100px;
+	height: 55px;
+	background-color: red;
+	color: white;
+	font-size: 18px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+.ButtonRetourBaback {
+	margin-bottom: 30px;
+	height: 90px;
+	width: 230px;
+	background-color: blue;
+	cursor: pointer;
+	font-size: 17px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	border-color: white;
+}
+
+
+.baback {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

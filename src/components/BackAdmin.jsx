@@ -22,12 +22,12 @@ class BackAdmin extends React.Component {
          						
 			
 				
-			<div className="conteneurSystemeSco"> 
+			<div className="conteneurSystemeSco baback"> 
 
-				<button className="buttonBack"><Link to ="/backsystemesco">Articles Systeme-Sco</Link></button>
-				<button className="buttonBack"><Link to ="/backmondepro">Articles Monde-Pro</Link></button>	
-				<button className="buttonBack"><Link to ="/backgastronomie">Articles Gastronomie</Link></button>
-				<button className="buttonBack"><Link to ="/backtechnologie">Articles Technologie</Link></button>	
+				<Link className="buttonBack" to ="/backsystemesco">Articles Systeme-Sco</Link>
+				<Link className="buttonBack" to ="/backmondepro">Articles Monde-Pro</Link>	
+				<Link className="buttonBack" to ="/backgastronomie">Articles Gastronomie</Link>
+				<Link className="buttonBack" to ="/backtechnologie">Articles Technologie</Link>	
 			</div>
 		
 		

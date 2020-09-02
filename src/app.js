@@ -67,7 +67,7 @@ componentDidMount(){
                      <Route exact path="/" render ={(props) =>  <Home {...props} connexion={this.state.connecte} 
                      changeMonState ={this.changeStateConnecte.bind(this)} />} />
                    
-                    <Route path="/MentionsLegales" component={MentionsLegales} />
+                    <Route path="/mentions-legales" component={MentionsLegales} />
                     <Route path="/Apropos" component={Apropos} />
                     <Route path="/systeme-sco" component={SystemeSco} />
                     <Route path="/monde-pro" component={MondePro} />

@@ -15,15 +15,18 @@ class ButtonLogout extends React.Component {
 		console.log(localStorage)
 		//this.props.interm(true)
 		//console.log(this.props.changeMonState)
-		this.props.changeMonState();
+		this.props.changeMonState()
 			/*function setFunction (){	
 				const connex = this.props.connexion;
 				this.setState({connecte: false}).bind(this)	
 				//document.location.reload(true)
 				//window.location.reload()}
 			}*/
+		this.props.removeButton()	
 	}
     render() {
+
+    	console.log(this.props.removeButton)
         return (
 
         <div className="buttonConteneur">	

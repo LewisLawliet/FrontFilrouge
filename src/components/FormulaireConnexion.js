@@ -71,8 +71,13 @@ class FormulaireConnexion extends React.Component {
 					
 				
 					this.props.changeSet()
-					
-					
+					console.log(res.admin)
+					/*if (res.admin === true) {
+						
+					}
+					*/
+
+					this.props.checkAdmin()
 				})
 
 			}
@@ -98,7 +103,7 @@ class FormulaireConnexion extends React.Component {
 
 	render(){
 		
-		
+		console.log(this.props.checkAdmin)
 		
 		return (
 

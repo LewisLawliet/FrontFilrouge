@@ -1,17 +1,17 @@
 import React from 'react';
 import '../index.css';
-
+import { Link } from 'react-router-dom';
 
 
 class BackTechnologie extends React.Component {
 
 state={
 
-		envoyé:false,
-		titleArticle: "",
-		contenuArticle: "",
+		
+		titleArticle: "",				
 		articles: [],
-		affiché: false
+		contenuArticle: ""
+		
 
 	}
 
@@ -22,12 +22,12 @@ componentDidMount(){
 	
 
 	handleClick = e =>  {
-		//e.preventDefault();
+		e.preventDefault();
 		//console.log(this.state);
 
 		const {titleArticle, contenuArticle, categorie} = this.state;
 		this.article(titleArticle, contenuArticle, categorie);
-		this.setState({envoye: true })
+		
 
 	} 
 
@@ -35,18 +35,18 @@ componentDidMount(){
 	handleClickPut = e =>  {
 		e.preventDefault();
 		//console.log(this.state);
-
-		const {titleArticle, contenuArticle} = this.state;
-		this.articlePut(titleArticle, contenuArticle);
-		this.setState({envoye: true })
+		const articles = this.state;
+		//const {titleArticle, contenuArticle} = this.state;
+		//this.articlePut(titleArticle, contenuArticle);
+		
 
 	} 
 
 
 
 
-	handleChange(e) {
-		e.preventDefault();
+	handleChange = e => {
+		
 		this.setState({ [e.target.name]: e.target.value })
 
 	}
@@ -67,7 +67,8 @@ componentDidMount(){
 			}),
 
 			headers: {
-				"Content-Type": "application/json"
+				"Content-Type": "application/json",
+				"Authorization": `bearer ${localStorage.getItem("jwt")}` 
 			}
 
 		
@@ -75,9 +76,10 @@ componentDidMount(){
 
 
 		.then(res => {
-			if (res.status === 200) {
+			if (res.status === 201) {
 				res.json().then(res => {
 					console.log("Article posté")
+					this.articleGet()
 				})
 
 			}
@@ -100,7 +102,7 @@ componentDidMount(){
 
 
      //////////////////////////////////////// GET  ////////////////////////////////////////////////////
-     articleGet(titleArticle, contenuArticle) { 
+     articleGet(titleArticle, contenuArticle, categorie) { 
 		
 
 		fetch("http://localhost:3200/api/culture-pop/technologie", {
@@ -110,7 +112,7 @@ componentDidMount(){
 			
 
 			headers: {
-				//"Content-Type": "application/json"
+				"Content-Type": "application/json",
 				"Content-Type": "application/x-www-form-urlencoded"
 			}
 
@@ -149,28 +151,25 @@ componentDidMount(){
 
 	////////////////////////////////////////  PUT /////////////////////////////////////////////////////
 
-	articlePut = (titleArticle, contenuArticle) => {
+	articlePut = (id) => {
 		
-		
+					
 
-		//fetch(`http://localhost:3200/api/culture-pop/technologie/${id}`,{
-			fetch("http://localhost:3200/api/culture-pop/technologie/5f3a8556435099009ec5805d", {
+		fetch("http://localhost:3200/api/culture-pop/technologie/" + id,{
+			
 			
 			method: "PUT",			
 			
-			body: {
-				
-				
-				titleArticle,				
-				contenuArticle
-				
-			},  
+		
+
+			body: new URLSearchParams (this.state), 
 
 			
 
 			headers: {
 				"Content-Type": "application/json",
-				"Content-Type": "application/x-www-form-urlencoded"
+				"Content-Type": "application/x-www-form-urlencoded",
+				"Authorization": `bearer ${localStorage.getItem("jwt")}` 
 			}
 
 		
@@ -182,6 +181,12 @@ componentDidMount(){
 			if (res.status === 200) {
 				res.json().then(res => {					
 					console.log("Puuut Article ^^")
+					//this.articleGet()					
+					console.log(id)
+					this.setState({titleArticle: ""})
+					this.setState({contenuArticle: ""})
+					this.articleGet()
+
 				})
 
 				
@@ -218,7 +223,7 @@ componentDidMount(){
 				//"Content-Type": "application/json"
 				//'Access-Control-Request-Headers':'*',
 				"Content-Type": "application/x-www-form-urlencoded",
-				//"Authorization": `bearer ${localStorage.getItem("jwt")}` 
+				"Authorization": `bearer ${localStorage.getItem("jwt")}` 
 			}			
 			
 		})
@@ -227,9 +232,9 @@ componentDidMount(){
 		.then(res => {
 			if (res.status === 200) {
 				res.json().then(res => {
-					this.setState({article: res})
-					document.location.reload(true);					
+					this.setState({article: res})										
 					console.log("Supprimé bro ^^")
+					this.articleGet()
 
 				})
 				
@@ -253,6 +258,9 @@ componentDidMount(){
 
     render() {
 
+    	console.log(this.state.titleArticle)
+    	console.log(this.state.contenuArticle)
+
     	const {articles} = this.state;		
 							
 			const articleFilter = articles.filter((article) => {
@@ -270,20 +278,21 @@ componentDidMount(){
 
 					 <p>{articleFilter.contenuArticle}</p>
 
-					 <button onClick={this.articleDelete.bind(this, articleFilter._id)}>ERASE</button>
+					 <button className="eraseButton" onClick={this.articleDelete.bind(this, articleFilter._id)}>ERASE</button>
 					 
-			<form className="PutForm" onSubmit = {this.handleClickPut}>	 
+			<form className="PutForm" onSubmit={this.handleClickPut.bind(this)}>	 
 					 <input type="text" name="titleArticle" defaultValue={articleFilter.titleArticle}
-					  onChange={this.handleChange.bind(this)} />
+					  onChange={this.handleChange}  />
 
 					 <textarea rows="30" name="contenuArticle"  defaultValue={articleFilter.contenuArticle}
-					 onChange={this.handleChange.bind(this)} />
+					 onChange={this.handleChange}  />
 
-					{/* <input type="text" name="categorie" placeholder="categorie"
-				 onChange={this.handleChange.bind(this)} className="categorie"/>*/}
+					 {/*<input type="text" name="categorie" defaultValue={articleFilter.categorie}
+				 onChange={this.handleChange.bind(this)}  />*/}
 
 					 <button onClick={this.articlePut.bind(this, articleFilter._id)}>PUT</button>
 			</form>		 
+			<Link to="/baback">retour au menu</Link>
 					 </div>
 					
 					 
@@ -315,6 +324,7 @@ componentDidMount(){
 				
 				{map}
 				{/*<button  onChange={this.handleChange.bind(this)}>GET</button>*/}
+				
 				
 			</div> 
 

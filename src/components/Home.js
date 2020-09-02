@@ -5,6 +5,7 @@ import ButtonSignup from './ButtonSignup';
 import ButtonLogin from './ButtonLogin';
 import ButtonLogout from './ButtonLogout';
 import { PropTypes } from 'react';
+import { Link } from 'react-router-dom';
 
 
 import  {  withRouter} from 'react-router-dom'
@@ -13,6 +14,7 @@ import  {  withRouter} from 'react-router-dom'
 class Home extends React.Component {
     state = {
 
+            button: false,
             users: [],
             wrongPasswordOrId: false,
             success: false,
@@ -106,6 +108,8 @@ class Home extends React.Component {
         }
     }
 
+    
+
 
 
   
@@ -128,7 +132,7 @@ class Home extends React.Component {
     }
 
 
-    userGet(admin, grade) {
+    userGet = (admin, grade) => {
     
 
     fetch("http://localhost:3200/api/button/admin", {
@@ -139,7 +143,8 @@ class Home extends React.Component {
 
       headers: {
         //"Content-Type": "application/json"
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": `bearer ${localStorage.getItem("jwt")}` 
       }
 
     
@@ -149,9 +154,10 @@ class Home extends React.Component {
     .then(res => {
       if (res.status === 200) {
         res.json().then(res => {
-          this.state.users = res.user;
-          this.setState({user: res})//this.setState({...this.state.articles});
+         // this.state.users = res.user;
+         // this.setState({user: res})//this.setState({...this.state.articles});
           //console.log(this.state.users)
+          this.setState({button: true})
           
               
         })
@@ -161,7 +167,7 @@ class Home extends React.Component {
 
       else {
 
-        console.log("user non get fréro")
+        console.log("Que pour l'admin")
       
       }
     })
@@ -174,9 +180,16 @@ class Home extends React.Component {
         
   }
 
+
+  buttonAdminState (){
+    this.setState({button: false})
+  }
+
+ 
+
     render() {
 
-
+      console.log(this.state.button)
           const {users} = this.state;    
                   
           const userFilter = users.filter((user) => {
@@ -185,16 +198,21 @@ class Home extends React.Component {
 
         })
 
-         console.log(userFilter) 
+         
 
-         const map = userFilter.map((userFilter) => (
+        const map = userFilter.map((userFilter) => (
 
           
 
-          <button style={{marginLeft: "6%", marginTop: "7px"}} key={userFilter._id}>ADMIN</button>
+          <button style={{marginLeft: "6%", marginTop: "7px"}} key={userFilter._id}>
+          
+          </button>
           
            
-        )); 
+        ));
+
+        const buttonAdmin = (
+         <Link style={{marginLeft: "6%", marginTop: "7px"}} to ="/baback">ADMIN</Link>)
 
        
        const message = (<div className ="msg"><p className="msgP">Il existe déjà un utilisateur 
@@ -208,10 +226,8 @@ class Home extends React.Component {
 
        const cercleRouge = (<div className="cercleRouge"></div> )
        const cercleVert =  (<div className="cercleVert"></div> )
-       //const intermm =  
-      // console.log(success)
-
-
+      
+      
 
         return (
      <div className="homeConteneur">
@@ -222,14 +238,14 @@ class Home extends React.Component {
       successInscription = {this.successSignup.bind(this)} />}
 	 
      
-	 {this.props.connexion ? <ButtonLogout changeMonState ={this.props.changeMonState} /> : 
-      <ButtonLogin change ={this.props.changeMonState} mistakeIdOrPassword={this.echecPasswordOrId.bind(this)} />}
+	 {this.props.connexion ? <ButtonLogout changeMonState ={this.props.changeMonState} removeButton={this.buttonAdminState.bind(this)} /> : 
+      <ButtonLogin change ={this.props.changeMonState} mistakeIdOrPassword={this.echecPasswordOrId.bind(this)} admin ={this.userGet}/>}
 
       {this.state.alreadyExist ? message : null}
       {this.state.success ? successMessage : null}
       {this.state.wrongPasswordOrId ? passwordIdFailed : null}   
-        
-	   {userFilter.checkLocalStorage ? map : null}
+       {this.state.button ? buttonAdmin : null} 
+	   
      
      <Image />	
        

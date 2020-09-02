@@ -61,58 +61,13 @@ class MondePro extends React.Component {
 				
 	}
 
-	articleDelete(id) {
-		
-
-		fetch("http://localhost:3200/api/societe/monde-pro/" + id, {
-
-			method: "DELETE",
-
-			headers: {
-				//"Content-Type": "application/json"
-				//'Access-Control-Request-Headers':'*',
-				"Content-Type": "application/x-www-form-urlencoded"
-			}			
-			
-		})
-
-
-		.then(res => {
-			if (res.status === 200) {
-				res.json().then(res => {
-					this.setState({article: res})
-					document.location.reload(true);					
-					console.log("Supprimé bro ^^")
-
-				})
-				
-				
-
-			}
-
-			else {
-
-				console.log("Article non supprimé fréro")
-			
-			}
-		})
-
-		.catch(errors =>{
-			console.log(errors);
-		}) 
-
-
-
+	
 					
 
 				
-	} 
+	
 
- /*deleteOnclick = (_id) => {
- 	
- 	this.articleDelete(_id)
- 	
- }*/
+ 
 
 
 
@@ -134,7 +89,7 @@ class MondePro extends React.Component {
 					<div className="conteneurSystemeSco" key={articleFilter._id}>
 					  <h1>{articleFilter.titleArticle}</h1>
 					 <p>{articleFilter.contenuArticle}</p>
-					 <button onClick={this.articleDelete.bind(this, articleFilter._id)}>ERASE</button>
+					 
 					 </div>
 					 
 				)); 

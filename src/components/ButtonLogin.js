@@ -37,7 +37,7 @@ class ButtonLogin extends React.Component {
      	
 
     		const formulaire = (<FormulaireConnexion formNotOpen={this.formClosed.bind(this)}
-    		errorConnexion={this.props.mistakeIdOrPassword} changeSet ={this.props.change} />);
+    		errorConnexion={this.props.mistakeIdOrPassword} changeSet ={this.props.change} checkAdmin={this.props.admin} />);
 
     
           //const formCancel =
