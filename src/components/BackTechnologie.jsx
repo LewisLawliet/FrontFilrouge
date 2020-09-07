@@ -25,8 +25,8 @@ componentDidMount(){
 		e.preventDefault();
 		//console.log(this.state);
 
-		const {titleArticle, contenuArticle, categorie} = this.state;
-		this.article(titleArticle, contenuArticle, categorie);
+		const {titleArticle, contenuArticle} = this.state;
+		this.article(titleArticle, contenuArticle);
 		
 
 	} 
@@ -292,7 +292,7 @@ componentDidMount(){
 
 					 <button onClick={this.articlePut.bind(this, articleFilter._id)}>PUT</button>
 			</form>		 
-			<Link to="/baback">retour au menu</Link>
+			<Link className="ButtonRetourBaback" to="/baback">retour au menu</Link>
 					 </div>
 					
 					 

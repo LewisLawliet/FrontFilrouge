@@ -35,7 +35,7 @@ a, li {
 
 .imgNd {
 	height: 200px;
-	width: 697px;
+	width: 695px;
 }
 
 .menu {
@@ -60,6 +60,131 @@ a, li {
 	height: 150px;
 
 }
+
+
+
+	@media all and (min-width: 800px) and (max-width: 1280px) {
+			.imgNd {
+				width: 695px;
+				
+			}
+
+			.conteneurOngletMenu {
+				width: 697px;
+				
+			}
+
+			.menu2 {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.logo {
+				margin-bottom: 15px;
+				margin-top: 15px;
+			}	
+
+			.imgEtOngletMenu {
+			width: auto;
+			padding-left: 12%;
+		}
+
+		.bouttonEtSonMenu {
+			width: 40px;
+		}
+
+		
+		.bouttonSociete {
+			width: 50px;
+			
+		}	
+
+		.societe {
+			width: 40px;
+		}
+
+		.bouttonCulturePop {
+			width: 40px;
+
+		}
+
+		.culturePop {
+			width: 40px;
+		}
+
+
+		.bouttonQuizz {
+			width: 40px;
+
+		}
+
+		.quizz {
+			width: 40px;
+		}
+
+	}
+
+@media all and (max-width: 800px) {
+			.imgNd {
+				width: 695px;
+				
+			}
+
+			.conteneurOngletMenu {
+				width: 697px;
+				
+			}
+
+			.menu2 {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.logo {
+				margin-bottom: 15px;
+				margin-top: 15px;
+			}	
+
+			.imgEtOngletMenu {
+			width: auto;
+			padding-left: 12%;
+		}
+
+		.bouttonEtSonMenu {
+			width: 40px;
+		}
+
+		.bouttonSociete {
+			width: 40px;
+
+		}
+
+		.societe {
+			width: 40px;
+		}
+
+		.bouttonCulturePop {
+			width: 40px;
+
+		}
+
+		.culturePop {
+			width: 40px;
+		}
+
+
+		.bouttonQuizz {
+			width: 40px;
+
+		}
+
+		.quizz {
+			width: 40px;
+		}
+
+	}
+
+
 
 
 
@@ -243,12 +368,18 @@ a, li {
 	cursor: pointer;
 }
 
+.bouttonEtSonMenu {
+
+	width: 232px;
+	height: 148px;
+}
+
 
 .societe {
 	width: 232px;
 	background-color: black;
 	height: 103px;
-	position: absolute;
+	/*position: absolute;*/
 	top: 250px;
 	display: flex;
 	flex-direction: column;
@@ -260,9 +391,9 @@ a, li {
 	width: 232px;
 	background-color: black;
 	height: 103px;
-	position: absolute;
+	/*position: absolute;*/
 	top: 250px;
-	margin-left: 232px;
+	/*margin-left: 232px;*/
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -273,9 +404,9 @@ a, li {
 	width: 232px;
 	background-color: black;
 	height: 103px;
-	position: absolute;
+	/*position: absolute;*/
 	top: 250px;
-	margin-left: 464px;
+	/*margin-left: 464px;*/
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

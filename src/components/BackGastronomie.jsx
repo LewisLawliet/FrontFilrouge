@@ -25,8 +25,8 @@ componentDidMount(){
 		e.preventDefault();
 		//console.log(this.state);
 
-		const {titleArticle, contenuArticle, categorie} = this.state;
-		this.article(titleArticle, contenuArticle, categorie);
+		const {titleArticle, contenuArticle} = this.state;
+		this.article(titleArticle, contenuArticle);
 		
 
 	} 

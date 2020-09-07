@@ -15,9 +15,9 @@ state={
 
 	}
 
-componentDidMount(){
-		this.articleGet()
-	}
+	componentDidMount(){
+			this.articleGet()
+		}
 
 	
 
@@ -25,11 +25,17 @@ componentDidMount(){
 		e.preventDefault();
 		//console.log(this.state);
 
-		const {titleArticle, contenuArticle, categorie} = this.state;
-		this.article(titleArticle, contenuArticle, categorie);
+		const {titleArticle, contenuArticle} = this.state;
+		this.article(titleArticle, contenuArticle);
 		
 
 	} 
+
+	handleChange = e => {
+		
+		this.setState({ [e.target.name]: e.target.value })
+
+	}
 
 	
 	handleClickPut = e =>  {
@@ -45,11 +51,11 @@ componentDidMount(){
 
 
 
-	handleChange = e => {
+	/*handleChange = e => {
 		
 		this.setState({ [e.target.name]: e.target.value })
 
-	}
+	}*/
 
 	article(titleArticle, contenuArticle, categorie) {
 		
@@ -86,17 +92,13 @@ componentDidMount(){
 
 			else {
 
-				console.log("Article non posté")
-			
+				console.log("Article non posté")			
 			}
 		})
 
 		.catch(errors =>{
 			console.log(errors);
-		})
-
-					
-
+		})		
 				
 	}
 
@@ -216,8 +218,7 @@ componentDidMount(){
 			method: "DELETE",
 
 			headers: {
-				//"Content-Type": "application/json"
-				//'Access-Control-Request-Headers':'*',
+				
 				"Content-Type": "application/x-www-form-urlencoded",
 				"Authorization": `bearer ${localStorage.getItem("jwt")}` 
 			}			
@@ -240,7 +241,7 @@ componentDidMount(){
 
 			else {
 
-				console.log("Article non supprimé fréro")
+				console.log("Article non supprimé bro")
 			
 			}
 		})

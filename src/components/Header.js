@@ -103,19 +103,31 @@ class Header extends React.Component {
 								
 								<div className="conteneurOngletMenu">	
 									
-									<button className="bouttonSociete" onClick={this.handleClick.bind(this)} 
-									 onDoubleClick={this.doubleHandleClick.bind(this) }>Société</button>
-										
-									<button className="bouttonCulturePop" onClick={this.handleClickDeux.bind(this)} 
-									onDoubleClick={this.doubleHandleClickDeux.bind(this)}>Culture pop</button>
 
-									<button className="bouttonQuizz" onClick={this.handleClickTrois.bind(this)}
-									onDoubleClick={this.doubleHandleClickTrois.bind(this)}>Quizz</button>
+									<div className="bouttonEtSonMenu">
+										<button className="bouttonSociete" onClick={this.handleClick.bind(this)} 
+										 onDoubleClick={this.doubleHandleClick.bind(this) }>Société</button>
+										 {this.state.menuDeroulantSociete ? menuSociete : null}
+
+									</div>	
+
+
+									<div className="bouttonEtSonMenu">		
+										<button className="bouttonCulturePop" onClick={this.handleClickDeux.bind(this)} 
+										onDoubleClick={this.doubleHandleClickDeux.bind(this)}>Culture pop</button>
+										{this.state.menuDeroulantCulturePop ? menuCulturePop : null}
+									</div>	
+
+
+									<div className="bouttonEtSonMenu">
+										<button className="bouttonQuizz" onClick={this.handleClickTrois.bind(this)}
+										onDoubleClick={this.doubleHandleClickTrois.bind(this)}>Quizz</button>
+										{this.state.menuDeroulantQuizz ? quizz : null}
+									</div>	
 
 									<br />
-									{this.state.menuDeroulantSociete ? menuSociete : null}
-									{this.state.menuDeroulantCulturePop ? menuCulturePop : null}
-									{this.state.menuDeroulantQuizz ? quizz : null}
+									
+									
 									
 								</div>
 							</div>

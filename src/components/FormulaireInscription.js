@@ -45,10 +45,8 @@ class FormulaireInscription extends React.Component {
 				email
 			}),
 
-			headers: {
-				//"Content-Type": "application/json"
-				      Accept: 'application/json',
-				      //'Content-Type':'application/x-www-form-urlencoded',
+			headers: {				
+				      Accept: 'application/json',				     
 	         		 'Accept-encoding': 'gzip, deflate',
 	                 'Content-Type': 'application/json',
 	                 'Access-Control-Request-Headers':'*'
