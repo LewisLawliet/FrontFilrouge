@@ -134,7 +134,7 @@ class Gastronomie extends React.Component {
 					<div className="conteneurSystemeSco" key={articleFilter._id}>
 					  <h1>{articleFilter.titleArticle}</h1>
 					 <p>{articleFilter.contenuArticle}</p>
-					 <button onClick={this.articleDelete.bind(this, articleFilter._id)}>ERASE</button>
+					 
 					 </div>
 					 
 				)); 

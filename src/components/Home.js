@@ -1,6 +1,7 @@
 import React from 'react';
 import '../index.css';
 import Image from './Image';
+import ImageResponsive from './ImageResponsive';
 import ButtonSignup from './ButtonSignup';
 import ButtonLogin from './ButtonLogin';
 import ButtonLogout from './ButtonLogout';
@@ -245,9 +246,10 @@ class Home extends React.Component {
       {this.state.success ? successMessage : null}
       {this.state.wrongPasswordOrId ? passwordIdFailed : null}   
        {this.state.button ? buttonAdmin : null} 
-	   
+	     <Image />
+       <ImageResponsive />
      
-     <Image />	
+     
        
      	 
      	   

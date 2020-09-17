@@ -7,13 +7,14 @@ class QuizzSystemeSco extends React.Component {
 
 state={
 
+		index: 0,
 		affiché: true,			
 		questions: []
 
 	}
 
 	componentDidMount(){
-		this.questionGet()
+		//this.questionGet()
 	}
 
 
@@ -65,7 +66,24 @@ state={
 				
 	}
 
+	nextQuestion = () =>{
+		const index = this.state.index;
+		
+
+		if (index < 3) {
+		this.setState({index: this.state.index + 1})
+			console.log(index)
+		}
+
+			else if (index >= 3) {
+		//this.setState({index: 0})
+			console.log(index)
+		}
+	}
+
 	render() {
+
+			//console.log(index.length)
 
 				const {questions} = this.state;		
 									
@@ -87,21 +105,49 @@ state={
 				)); 
 
 		const quizz = [
+		         
+		         
 		         {
-		          question: mapQuestion,
-		          answers: [`4`,`2`,`1`],
-		          correctAnswer: 0 // index of the correct answer in the answers array
-		         },
-		         {
+		          id: 1,	
 		          question: "Is JavaScript cool?",
+		          answers: [`yes`,`no`,`of course`,`yes, it is`,`yep`,`definitely`],
+		          correctAnswers: [0,2,3,4] // multiple correct answers, make sure to differentiate between correctAnswer and correctAnswers
+		         },
+
+		         {
+		          id: 2,	
+		          question: "Qui a mangé ?",
+		          answers: [`yes`,`no`,`maybe`,`I don't know`,`yep`,`definitely`],
+		          correctAnswers: [0,2,3,4] // multiple correct answers, make sure to differentiate between correctAnswer and correctAnswers
+		         },
+
+		         {
+		          id: 3,	
+		          question: "Depuis quand ?",
 		          answers: [`yes`,`no`,`of course`,`yes, it is`,`yep`,`definitely`],
 		          correctAnswers: [0,2,3,4] // multiple correct answers, make sure to differentiate between correctAnswer and correctAnswers
 		         },
     ];
 
+    				const returnQuizz = (
+
+						
+						  <h1>{quizz[this.state.index].question}</h1>			  
+						 
+						 						 
+					); 
+
+					
+					console.log(quizz[0])
+
 		return(
 			<div className="conteneurQuizzSystemeSco">
-				{mapQuestion}
+				<div className="question">
+						  {returnQuizz}
+						  <button onClick = {this.nextQuestion}>NEXT</button>	
+						 
+						 
+						 </div>
 			</div>
 
 		);

@@ -12,6 +12,55 @@ import { Link } from 'react-router-dom';
 class BackAdmin extends React.Component {
 
 
+	componentDidMount (){
+
+		this.userGet()
+	}
+
+	userGet = (admin, grade) => {
+    
+
+    fetch("http://localhost:3200/api/button/admin", {
+
+     method: "GET",      
+      
+      
+
+      headers: {
+        //"Content-Type": "application/json"
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": `bearer ${localStorage.getItem("jwt")}` 
+      }
+
+    
+    })
+
+
+    .then(res => {
+      if (res.status === 200) {
+        res.json().then(res => {
+         console.log("it's work")
+              
+        })
+        
+
+      }
+
+      else {
+
+        console.log("Que pour l'admin")
+      	this.props.history.push("/")
+      }
+    })
+
+    .catch(errors =>{
+      console.log(errors);
+    })
+      
+
+        
+  }
+
     render() {
 
     	

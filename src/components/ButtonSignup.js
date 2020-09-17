@@ -14,14 +14,11 @@ class ButtonSignup extends React.Component {
 	  
 	handleClick(e) {
 		e.preventDefault();
-		this.setState({formInscription: true});
+		this.setState({formInscription: !this.state.formInscription});
 				
 	}
 
-	doubleClick(){
-		this.setState({formInscription: false});
-	}
-
+	
 
 
 
@@ -41,8 +38,8 @@ class ButtonSignup extends React.Component {
         
         <div className="buttonConteneur">	
         		
-           <button className ="buttonSignup" onClick={this.handleClick.bind(this)}
-           onDoubleClick={this.doubleClick.bind(this)}  >Signup</button>
+           <button className ="buttonSignup" 
+            onClick={this.handleClick.bind(this)}>Signup</button>
            {this.state.formInscription ? formumu : null}
            		
 		   		    

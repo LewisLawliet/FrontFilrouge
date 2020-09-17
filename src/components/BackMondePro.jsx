@@ -12,6 +12,8 @@ state={
 		articles: [],
 		contenuArticle: ""
 		
+		
+		
 
 	}
 
@@ -36,6 +38,8 @@ state={
 		this.setState({ [e.target.name]: e.target.value })
 
 	}
+
+	
 
 	
 	handleClickPut = e =>  {
@@ -308,8 +312,8 @@ state={
 				onChange={this.handleChange.bind(this)} className="contenu"></textarea><br />
 
 
-				<input type="text" name="categorie" placeholder="categorie"
-				 onChange={this.handleChange.bind(this)} className="categorie" defaultValue="monde-pro" />
+				<input type="text" name="categorie" 
+				 onChange={this.handleChange} className="categorie" defaultValue="monde-pro" />
 
 				<button>ENVOYER ARTICLE</button>
 			</form>

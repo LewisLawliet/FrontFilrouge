@@ -10,13 +10,11 @@ class ButtonLogin extends React.Component {
 
 	handleClick(e) {
 		//e.preventDefault();
-		this.setState({formConnexion: true});
+		this.setState({formConnexion: !this.state.formConnexion});
 				
 	}
 
-	doubleClick(){
-		this.setState({formConnexion: false});
-	}
+	
 
 
 	formClosed(){
@@ -49,8 +47,8 @@ class ButtonLogin extends React.Component {
         <div className="buttonConteneur2">	
         	
        		
-           <button className ="buttonLogin" onClick={this.handleClick.bind(this)}
-           onDoubleClick={this.doubleClick.bind(this)}>Login</button> 
+           <button className ="buttonLogin" 
+          	onClick={this.handleClick.bind(this)} >Login</button> 
            {this.state.formConnexion ? formulaire : null} 
            {this.state.closeForm ? this.formCancel.bind(this) : null }	
                   

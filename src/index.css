@@ -63,126 +63,7 @@ a, li {
 
 
 
-	@media all and (min-width: 800px) and (max-width: 1280px) {
-			.imgNd {
-				width: 695px;
-				
-			}
-
-			.conteneurOngletMenu {
-				width: 697px;
-				
-			}
-
-			.menu2 {
-				flex-direction: column;
-				align-items: center;
-			}
-
-			.logo {
-				margin-bottom: 15px;
-				margin-top: 15px;
-			}	
-
-			.imgEtOngletMenu {
-			width: auto;
-			padding-left: 12%;
-		}
-
-		.bouttonEtSonMenu {
-			width: 40px;
-		}
-
-		
-		.bouttonSociete {
-			width: 50px;
-			
-		}	
-
-		.societe {
-			width: 40px;
-		}
-
-		.bouttonCulturePop {
-			width: 40px;
-
-		}
-
-		.culturePop {
-			width: 40px;
-		}
-
-
-		.bouttonQuizz {
-			width: 40px;
-
-		}
-
-		.quizz {
-			width: 40px;
-		}
-
-	}
-
-@media all and (max-width: 800px) {
-			.imgNd {
-				width: 695px;
-				
-			}
-
-			.conteneurOngletMenu {
-				width: 697px;
-				
-			}
-
-			.menu2 {
-				flex-direction: column;
-				align-items: center;
-			}
-
-			.logo {
-				margin-bottom: 15px;
-				margin-top: 15px;
-			}	
-
-			.imgEtOngletMenu {
-			width: auto;
-			padding-left: 12%;
-		}
-
-		.bouttonEtSonMenu {
-			width: 40px;
-		}
-
-		.bouttonSociete {
-			width: 40px;
-
-		}
-
-		.societe {
-			width: 40px;
-		}
-
-		.bouttonCulturePop {
-			width: 40px;
-
-		}
-
-		.culturePop {
-			width: 40px;
-		}
-
-
-		.bouttonQuizz {
-			width: 40px;
-
-		}
-
-		.quizz {
-			width: 40px;
-		}
-
-	}
+	
 
 
 
@@ -215,7 +96,7 @@ a, li {
 	justify-content: space-around;
 	height: 70px;
 	align-items: center;
-	widows: 100%
+	/*width: 100% */
 }
 
 .homeConteneur {
@@ -241,6 +122,8 @@ a, li {
 	width: 100%;
 	height: 507px
 }
+
+
 
 .background {
 
@@ -709,3 +592,323 @@ a, li {
 	flex-direction: column;
 	align-items: center;
 }
+
+
+
+@media all and (max-width: 399px) {
+				.imgNd {
+				width: 303px;
+				height: auto;
+			}
+
+			.conteneurOngletMenu {
+				width: 345px;
+				height: auto;
+			}
+
+			.imglogo {
+				width: 110px;
+				height: 110px;
+
+			}
+
+			.menu2 {
+				flex-direction: column;
+				align-items: center;
+				/*width: auto;
+				height: auto;*/
+			}
+
+			.logo {
+				margin-bottom: 10px;
+				margin-top: 10px;
+			}	
+
+			.imgEtOngletMenu {
+			width: 303px;
+			padding-left: 0%;
+			height: auto;
+		}
+
+		.bouttonEtSonMenu {
+			width: 101px;
+			height: 46px;
+		}
+
+		
+		.bouttonSociete {
+			width: 101px;
+			height: 46px;
+		}	
+
+		.societe {
+			width: 101px;
+			height: auto;
+		}
+
+		.bouttonCulturePop {
+			width: 101px;
+			height: 46px;
+		}
+
+		.culturePop {
+			width: 101px;
+			height: auto;
+		}
+
+
+		.bouttonQuizz {
+			width: 101px;
+			height: 46px;
+		}
+
+		.quizz {
+			width: 101px;
+			height: auto;
+		}
+
+
+		.buttonSignup {
+			width: 101px;
+			height: 46px;
+		}
+
+		.buttonLogin{
+			width: 101px;
+			height: 46px;
+		} 
+
+
+		.contourForm {
+			width: 91px;
+			height: auto;
+		}
+
+		.champsForm {
+			width: 75px;
+			height: auto;
+		}
+
+		.envoyer {
+			width: 75px;
+			height: auto;
+		}
+
+		.buttonConteneur {
+			width: 120px;
+			height: auto;
+		}
+
+		.imgJaponBackground {
+
+			display: none;
+		}
+
+		.imgJaponBackgroundResponsive {
+
+			width: 100%;
+			height: auto;
+		}
+
+		h3 {
+
+			margin-top: 134px;
+		}
+
+		.homeConteneur {
+			height: 885px;
+		}
+
+		.ulFooter {
+			margin: 0;
+			padding: 0;
+		}
+
+	}
+
+	@media all and (min-width: 400px) and (max-width: 799px) {
+		
+
+		.imgNd {
+				width: 510px;
+				height: auto;
+			}
+
+			.imglogo {
+				width: 120px;
+				height: 120px;
+
+			}
+
+			.conteneurOngletMenu {
+				width: 510px;
+				height: auto;
+			}
+
+			.menu2 {
+				flex-direction: column;
+				align-items: center;
+				/*padding-left: 4%;*/
+			}
+
+			.logo {
+				margin-bottom: 20px;
+				margin-top: 20px;
+				margin-left: 0;
+			}	
+
+			.imgEtOngletMenu {
+			width: 510px;
+			padding-left: 0%;
+			height: auto;
+		}
+
+		.bouttonEtSonMenu {
+			width: 170px;
+			height: 35px;
+		}
+
+		.bouttonSociete {
+			width: 170px;
+			height: 35px;
+		}
+
+		.societe {
+			width: 170px;
+			height: 90px;
+		}
+
+		.bouttonCulturePop {
+			width: 170px;
+			height: 35px;
+
+		}
+
+		.culturePop {
+			width: 170px;
+			height: 90px;
+		}
+
+
+		.bouttonQuizz {
+			width: 170px;
+			height: 35px;
+
+		}
+
+		.quizz {
+			width: 170px;
+			height: 90px;
+		}
+
+		h3 {
+			margin-top: 95px;
+		}
+
+		.imgJaponBackgroundResponsive {
+
+			display: none;
+		}
+
+		.ulFooter {
+			margin: 0;
+			padding: 0;
+		}
+
+	} 
+
+	@media all and (min-width: 800px) and (max-width: 1280px) {
+		
+
+		.imgNd {
+				width: 750px;
+				height: auto;
+			}
+
+			.imglogo {
+				width: 120px;
+				height: 120px;
+
+			}
+
+			.conteneurOngletMenu {
+				width: 697px;
+				height: auto;
+			}
+
+			.menu2 {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.logo {
+				margin-bottom: 20px;
+				margin-top: 20px;
+			}	
+
+			.imgEtOngletMenu {
+			width: 750px;
+			padding-left: 0%;
+			height: auto;
+		}
+
+		.bouttonEtSonMenu {
+			width: 250px;
+			height: auto;
+		}
+
+		.bouttonSociete {
+			width: 250px;
+			height: auto;
+		}
+
+		.societe {
+			width: 250px;
+			height: auto;
+		}
+
+		.bouttonCulturePop {
+			width: 250px;
+			height: auto;
+
+		}
+
+		.culturePop {
+			width: 250px;
+			height: auto;
+		}
+
+
+		.bouttonQuizz {
+			width: 250px;
+			height: auto;
+
+		}
+
+		.quizz {
+			width: 250px;
+			height: auto;
+		}
+
+		.imgJaponBackgroundResponsive {
+
+			display: none;
+		}
+
+		.ulFooter {
+			margin: 0;
+			padding: 0;
+		}
+
+	} 
+
+
+
+	@media all and (min-width: 1281px) {
+
+		.imgJaponBackgroundResponsive {
+
+			display: none;
+		}
+
+	}	

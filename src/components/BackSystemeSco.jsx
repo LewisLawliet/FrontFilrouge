@@ -52,7 +52,7 @@ componentDidMount(){
 	}
 
 	article(titleArticle, contenuArticle, categorie) {
-		const test = "http://localhost:3200/api/societe/systeme-sco"
+		
 
 		fetch("http://localhost:3200/api/societe/systeme-sco", {
 
@@ -62,8 +62,8 @@ componentDidMount(){
 				
 				
 				titleArticle,
-				contenuArticle,
-				categorie
+				contenuArticle
+				//categorie
 			}),
 
 			headers: {

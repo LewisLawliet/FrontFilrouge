@@ -18,36 +18,23 @@ class Header extends React.Component {
 
 	handleClick(){
 		//event.preventDefault();
-		this.setState({menuDeroulantSociete: true}) 
+		this.setState({menuDeroulantSociete: !this.state.menuDeroulantSociete}) 
 	}
 
-	doubleHandleClick(){
-		
-		this.setState({menuDeroulantSociete: false})
-		
-	}
-
+	
 	handleClickDeux(){
 		//event.preventDefault();
-		this.setState({menuDeroulantCulturePop: true})
+		this.setState({menuDeroulantCulturePop: !this.state.menuDeroulantCulturePop})
 	}
 
-	doubleHandleClickDeux(){
-		
-		this.setState({menuDeroulantCulturePop: false})
-		//alert("It's work mother fucker")
-	}
+	
 
 	handleClickTrois(){
 		//event.preventDefault();
-		this.setState({menuDeroulantQuizz: true})
+		this.setState({menuDeroulantQuizz: !this.state.menuDeroulantQuizz})
 	}
 
-	doubleHandleClickTrois(){
-		
-		this.setState({menuDeroulantQuizz: false})
-		//alert("It's work mother fucker")
-	}
+	
 
 
 	    render() {
@@ -106,7 +93,7 @@ class Header extends React.Component {
 
 									<div className="bouttonEtSonMenu">
 										<button className="bouttonSociete" onClick={this.handleClick.bind(this)} 
-										 onDoubleClick={this.doubleHandleClick.bind(this) }>Société</button>
+										 >Société</button>
 										 {this.state.menuDeroulantSociete ? menuSociete : null}
 
 									</div>	
@@ -114,14 +101,14 @@ class Header extends React.Component {
 
 									<div className="bouttonEtSonMenu">		
 										<button className="bouttonCulturePop" onClick={this.handleClickDeux.bind(this)} 
-										onDoubleClick={this.doubleHandleClickDeux.bind(this)}>Culture pop</button>
+										>Culture pop</button>
 										{this.state.menuDeroulantCulturePop ? menuCulturePop : null}
 									</div>	
 
 
 									<div className="bouttonEtSonMenu">
 										<button className="bouttonQuizz" onClick={this.handleClickTrois.bind(this)}
-										onDoubleClick={this.doubleHandleClickTrois.bind(this)}>Quizz</button>
+										>Quizz</button>
 										{this.state.menuDeroulantQuizz ? quizz : null}
 									</div>	
 
