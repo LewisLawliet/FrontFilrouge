@@ -534,6 +534,12 @@ a, li {
 	background-color: #92A4E4;
 }
 
+.quizzQuestion {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
 .buttonBack {
 	margin-top: 100px;
 	height: 90px;

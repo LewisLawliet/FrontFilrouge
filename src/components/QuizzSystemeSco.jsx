@@ -9,12 +9,79 @@ state={
 
 		index: 0,
 		affiché: true,			
-		questions: []
+		questions: [],
+		reponse: ""
 
 	}
 
-	componentDidMount(){
-		//this.questionGet()
+	componentDidMount = () => {
+		this.questionGet()
+	}
+
+
+	handleClick = (e) =>  {
+		
+		e.preventDefault();
+		
+		//console.log(this.state);
+
+		const {reponse} = this.state;
+		this.questionPost(reponse);
+		
+
+	} 
+
+	handleClick2 = (id) => {
+		console.log("Wesh gros")
+	}
+
+	
+
+	handleChange = e => {
+		
+		this.setState({ [e.target.name]: e.target.value })
+
+	}
+
+	questionPost = (reponse) => {
+		fetch("http://localhost:3200/api/quizz/systeme-sco", {
+
+			method: "POST",			
+			
+			body: JSON.stringify({
+												
+				reponse
+			}),
+
+			headers: {
+				"Content-Type": "application/json",
+				//"Authorization": `bearer ${localStorage.getItem("jwt")}`
+			}
+
+		
+		})
+
+
+		.then(res => {
+			if (res.status === 201) {
+				res.json().then(res => {
+					console.log("Réponse postée")
+					
+				})
+			
+			}
+
+			else {
+
+				console.log("Réponse non postée")			
+			}
+		})
+
+		.catch(errors =>{
+			console.log(errors);
+		})		
+			
+
 	}
 
 
@@ -67,24 +134,27 @@ state={
 	}
 
 	nextQuestion = () =>{
+		const div = document.getElementsByClassName("question")[0].getAttribute("");
 		const index = this.state.index;
 		
+		console.log(div)
 
-		if (index < 3) {
+
+		if (index < 2) {
 		this.setState({index: this.state.index + 1})
 			console.log(index)
 		}
 
-			else if (index >= 3) {
-		//this.setState({index: 0})
+			else  {
+		this.setState({index: 0})
 			console.log(index)
 		}
 	}
 
 	render() {
 
-			//console.log(index.length)
 
+		
 				const {questions} = this.state;		
 									
 					const questionFilter = questions.filter((question) => {
@@ -93,61 +163,45 @@ state={
 
 				})
 
-					const mapQuestion = questionFilter.map((questionFilter) => (
+					const mapQuestion = questionFilter.map((question) => (
+						
 
-					<div className="question" key={questionFilter._id}>
-					  <h1>{questionFilter.libelle}</h1>
-					
+					<div className="question" key={question._id} id= {question._id}>
+					  <p className="quizzQuestion">{question.libelle}</p>
+					  	
 					 
 					 
 					 </div>
 					 
 				)); 
 
-		const quizz = [
-		         
-		         
-		         {
-		          id: 1,	
-		          question: "Is JavaScript cool?",
-		          answers: [`yes`,`no`,`of course`,`yes, it is`,`yep`,`definitely`],
-		          correctAnswers: [0,2,3,4] // multiple correct answers, make sure to differentiate between correctAnswer and correctAnswers
-		         },
-
-		         {
-		          id: 2,	
-		          question: "Qui a mangé ?",
-		          answers: [`yes`,`no`,`maybe`,`I don't know`,`yep`,`definitely`],
-		          correctAnswers: [0,2,3,4] // multiple correct answers, make sure to differentiate between correctAnswer and correctAnswers
-		         },
-
-		         {
-		          id: 3,	
-		          question: "Depuis quand ?",
-		          answers: [`yes`,`no`,`of course`,`yes, it is`,`yep`,`definitely`],
-		          correctAnswers: [0,2,3,4] // multiple correct answers, make sure to differentiate between correctAnswer and correctAnswers
-		         },
-    ];
+					
 
     				const returnQuizz = (
 
-						
-						  <h1>{quizz[this.state.index].question}</h1>			  
-						 
-						 						 
+							<div>
+							  {mapQuestion[this.state.index]}
+								  <form className="conteneurBack" onSubmit={this.handleClick}>
+									<input type="text" name="reponse" placeholder="reponse" 
+									onChange={this.handleChange} className="title"/><br />
+									<button onClick = {this.nextQuestion}>NEXT</button>
+								</form> 
+							</div> 
+											 
 					); 
 
 					
-					console.log(quizz[0])
+					console.log(questionFilter)
 
 		return(
 			<div className="conteneurQuizzSystemeSco">
 				<div className="question">
 						  {returnQuizz}
-						  <button onClick = {this.nextQuestion}>NEXT</button>	
+						  
+						  	
 						 
 						 
-						 </div>
+				 </div>
 			</div>
 
 		);
