@@ -44,14 +44,18 @@ state={
 	}
 
 	questionPost = (reponse) => {
-		fetch("http://localhost:3200/api/quizz/systeme-sco", {
+		const id = document.getElementsByClassName("question")[0].getAttribute("id");
+		fetch("http://localhost:3200/api/quizz/systeme-sco/" + id, {
 
 			method: "POST",			
 			
 			body: JSON.stringify({
 												
 				reponse
+
 			}),
+
+
 
 			headers: {
 				"Content-Type": "application/json",
@@ -66,6 +70,7 @@ state={
 			if (res.status === 201) {
 				res.json().then(res => {
 					console.log("Réponse postée")
+
 					
 				})
 			
@@ -134,7 +139,7 @@ state={
 	}
 
 	nextQuestion = () =>{
-		const div = document.getElementsByClassName("question")[0].getAttribute("");
+		const div = document.getElementsByClassName("question")[0].getAttribute("id");
 		const index = this.state.index;
 		
 		console.log(div)
@@ -195,13 +200,13 @@ state={
 
 		return(
 			<div className="conteneurQuizzSystemeSco">
-				<div className="question">
+				
 						  {returnQuizz}
 						  
 						  	
 						 
 						 
-				 </div>
+				 
 			</div>
 
 		);
