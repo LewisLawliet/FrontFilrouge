@@ -528,10 +528,18 @@ a, li {
 }
 
 .question {
+	/*margin-top: 140px;
+	width: 100%;
+	height: 375px;
+	background-color: #92A4E4;*/
+}
+
+.test {
 	margin-top: 140px;
 	width: 100%;
 	height: 375px;
 	background-color: #92A4E4;
+
 }
 
 .quizzQuestion {

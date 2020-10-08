@@ -10,7 +10,8 @@ state={
 		index: 0,
 		affiché: true,			
 		questions: [],
-		reponse: ""
+		reponse: "",
+		goodAnswers: 0
 
 	}
 
@@ -27,7 +28,8 @@ state={
 
 		const {reponse} = this.state;
 		this.questionPost(reponse);
-		
+		this.nextQuestion()
+		this.setState({reponse: ""})
 
 	} 
 
@@ -47,30 +49,40 @@ state={
 		const id = document.getElementsByClassName("question")[0].getAttribute("id");
 		fetch("http://localhost:3200/api/quizz/systeme-sco/" + id, {
 
-			method: "POST",			
+			method: "POST",	
+
+			headers: {
+				"Content-Type": "application/json",
+				//"Authorization": `bearer ${localStorage.getItem("jwt")}`
+			},		
 			
 			body: JSON.stringify({
 												
 				reponse
 
-			}),
+			})
 
 
 
-			headers: {
+			/*headers: {
 				"Content-Type": "application/json",
 				//"Authorization": `bearer ${localStorage.getItem("jwt")}`
-			}
+			}*/
 
 		
 		})
 
 
 		.then(res => {
-			if (res.status === 201) {
+			if (res.status === 200) {
 				res.json().then(res => {
 					console.log("Réponse postée")
+					console.log(res)
+					this.setState({reponse: ""})
 
+					if(res.checkToogle == true){
+						this.setState({goodAnswers: this.state.goodAnswers + 1})
+					}
 					
 				})
 			
@@ -78,7 +90,8 @@ state={
 
 			else {
 
-				console.log("Réponse non postée")			
+				console.log("Réponse non postée")
+				this.setState({reponse: ""})			
 			}
 		})
 
@@ -139,10 +152,11 @@ state={
 	}
 
 	nextQuestion = () =>{
-		const div = document.getElementsByClassName("question")[0].getAttribute("id");
+		//const div = document.getElementsByClassName("question")[0].getAttribute("id");
+		//e.preventDefault();
 		const index = this.state.index;
 		
-		console.log(div)
+		//console.log(div)
 
 
 		if (index < 2) {
@@ -153,7 +167,7 @@ state={
 			else  {
 		this.setState({index: 0})
 			console.log(index)
-		}
+		} 
 	}
 
 	render() {
@@ -184,12 +198,12 @@ state={
 
     				const returnQuizz = (
 
-							<div>
+							<div className="test">
 							  {mapQuestion[this.state.index]}
 								  <form className="conteneurBack" onSubmit={this.handleClick}>
-									<input type="text" name="reponse" placeholder="reponse" 
+									<input type="text" name="reponse" placeholder="réponse" 
 									onChange={this.handleChange} className="title"/><br />
-									<button onClick = {this.nextQuestion}>NEXT</button>
+									<button className="buttonSignup">NEXT</button>
 								</form> 
 							</div> 
 											 
@@ -198,11 +212,13 @@ state={
 					
 					console.log(questionFilter)
 
+					const result = (<h2>Bien ouéj ! </h2>)
+
 		return(
 			<div className="conteneurQuizzSystemeSco">
 				
 						  {returnQuizz}
-						  
+						  {this.state.goodAnswers == 3 ? result : null}
 						  	
 						 
 						 
