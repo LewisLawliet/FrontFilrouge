@@ -11,7 +11,8 @@ state={
 		affiché: true,			
 		questions: [],
 		reponse: "",
-		goodAnswers: 0
+		goodAnswers: false,
+		countGoodAnswers: 0
 
 	}
 
@@ -29,20 +30,23 @@ state={
 		const {reponse} = this.state;
 		this.questionPost(reponse);
 		this.nextQuestion()
-		this.setState({reponse: ""})
+		//this.setState({reponse: ""})
 
 	} 
 
-	handleClick2 = (id) => {
-		console.log("Wesh gros")
+
+	checkGoodAnswer = () => {
+
+
 	}
 
+	
 	
 
 	handleChange = e => {
 		
 		this.setState({ [e.target.name]: e.target.value })
-
+		this.setState({[e.target.name]: ""})
 	}
 
 	questionPost = (reponse) => {
@@ -78,10 +82,12 @@ state={
 				res.json().then(res => {
 					console.log("Réponse postée")
 					console.log(res)
+					
 					this.setState({reponse: ""})
 
-					if(res.checkToogle == true){
-						this.setState({goodAnswers: this.state.goodAnswers + 1})
+					if(res = true){
+						this.setState({countGoodAnswers: this.state.countGoodAnswers + 1})
+						this.setState({goodAnswers: true})
 					}
 					
 				})
@@ -91,7 +97,7 @@ state={
 			else {
 
 				console.log("Réponse non postée")
-				this.setState({reponse: ""})			
+				//this.setState({reponse: ""})			
 			}
 		})
 
@@ -210,15 +216,18 @@ state={
 					); 
 
 					
-					console.log(questionFilter)
+					
 
-					const result = (<h2>Bien ouéj ! </h2>)
+
+					const result = (<div><h2>Bonne réponse !</h2></div>)
+				//	console.log(result)
+				//	console.log(this.state.goodAnswers)
 
 		return(
 			<div className="conteneurQuizzSystemeSco">
 				
 						  {returnQuizz}
-						  {this.state.goodAnswers == 3 ? result : null}
+						  {(this.state.goodAnswers === true) ? result : null}
 						  	
 						 
 						 
