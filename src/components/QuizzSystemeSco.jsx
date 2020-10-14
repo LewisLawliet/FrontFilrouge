@@ -12,14 +12,54 @@ state={
 		questions: [],
 		reponse: "",
 		goodAnswers: false,
-		countGoodAnswers: 0
-
+		falseAnswers: false,
+		countGoodAnswers: 0,
+		countQuestions: 0,
+		numberQuestion: 1,
+		gradeAppears: null
 	}
 
 	componentDidMount = () => {
 		this.questionGet()
 	}
 
+
+	componentDidUpdate = () => {
+
+		if (this.state.goodAnswers === true){
+
+			setTimeout(()=> {
+			this.setState({goodAnswers: false})
+
+								}, 3000)
+
+		}
+
+		else if (this.state.falseAnswers === true){
+
+			setTimeout(()=> {
+			this.setState({falseAnswers: false})
+
+								}, 3000)
+
+		}
+
+		if(this.state.countQuestions === 3 && this.state.countGoodAnswers === 1){
+			if(this.state.gradeAppears == null )
+
+				this.setState({gradeAppears: <img src="./images/Samurai.jpg" className ="samuraï" />})
+		}
+		
+	}
+
+	/*grade = () => {
+		if(this.state.countQuestions === 2 & this.state.countGoodAnswers === 1){
+			console.log("One")
+			return <img src="./images/Samuraï.jpg" className ="samuraï" />
+			console.log("two")
+		}
+
+	}*/
 
 	handleClick = (e) =>  {
 		
@@ -30,15 +70,10 @@ state={
 		const {reponse} = this.state;
 		this.questionPost(reponse);
 		this.nextQuestion()
-		//this.setState({reponse: ""})
+		this.setState({reponse: ""})
+		this.ActualQuestionNumber()
 
 	} 
-
-
-	checkGoodAnswer = () => {
-
-
-	}
 
 	
 	
@@ -46,7 +81,8 @@ state={
 	handleChange = e => {
 		
 		this.setState({ [e.target.name]: e.target.value })
-		this.setState({[e.target.name]: ""})
+
+
 	}
 
 	questionPost = (reponse) => {
@@ -82,12 +118,17 @@ state={
 				res.json().then(res => {
 					console.log("Réponse postée")
 					console.log(res)
+					//this.state.goodAnswers = res.;
 					
-					this.setState({reponse: ""})
 
-					if(res = true){
+					if(res == true){
 						this.setState({countGoodAnswers: this.state.countGoodAnswers + 1})
 						this.setState({goodAnswers: true})
+					}
+
+					else {
+						this.setState({falseAnswers: true})
+						
 					}
 					
 				})
@@ -161,19 +202,33 @@ state={
 		//const div = document.getElementsByClassName("question")[0].getAttribute("id");
 		//e.preventDefault();
 		const index = this.state.index;
+		const countQuestions = this.state.countQuestions
 		
 		//console.log(div)
-
+		if (countQuestions !== 3){
+		this.setState({countQuestions: this.state.countQuestions + 1})
+		}
 
 		if (index < 2) {
 		this.setState({index: this.state.index + 1})
-			console.log(index)
+			//console.log(index)
 		}
 
-			else  {
+			/*else  {
 		this.setState({index: 0})
-			console.log(index)
-		} 
+			
+		} */
+	}
+
+	ActualQuestionNumber =() =>{
+
+		const actualNumber = this.state.numberQuestion;
+
+		if (actualNumber < 3) {
+		this.setState({numberQuestion: this.state.numberQuestion + 1})
+			//console.log(index)
+		}
+
 	}
 
 	render() {
@@ -205,9 +260,10 @@ state={
     				const returnQuizz = (
 
 							<div className="test">
+							<h2>{this.state.numberQuestion}</h2>
 							  {mapQuestion[this.state.index]}
 								  <form className="conteneurBack" onSubmit={this.handleClick}>
-									<input type="text" name="reponse" placeholder="réponse" 
+									<input type="text" name="reponse" value ={this.state.reponse} 
 									onChange={this.handleChange} className="title"/><br />
 									<button className="buttonSignup">NEXT</button>
 								</form> 
@@ -219,18 +275,20 @@ state={
 					
 
 
-					const result = (<div><h2>Bonne réponse !</h2></div>)
-				//	console.log(result)
-				//	console.log(this.state.goodAnswers)
-
+					const result = (<div className="goodAnswers"><h2>Bonne réponse !</h2></div>)
+					const badResult = (<div className="falseAnswers"><h2>Mauvaise réponse !</h2></div>)
+					console.log(this.state.countQuestions, "countQuestions")
+					console.log(this.state.countGoodAnswers, "CountGoodAnswers")
+					
+				
 		return(
 			<div className="conteneurQuizzSystemeSco">
-				
+							
 						  {returnQuizz}
-						  {(this.state.goodAnswers === true) ? result : null}
-						  	
-						 
-						 
+						  {this.state.goodAnswers === true ? result : null}
+						  {(this.state.falseAnswers === true) ? badResult : null}	
+						  {this.state.gradeAppears !== null ? this.state.gradeAppears : null} 
+						  							 
 				 
 			</div>
 
