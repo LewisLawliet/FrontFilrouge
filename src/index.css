@@ -443,7 +443,7 @@ a, li {
 
 .title {
 	height: 40px;
-	width: 14%;
+	width: 200px;
 }
 
 .contenu {
@@ -539,6 +539,8 @@ a, li {
 	width: 100%;
 	height: 375px;
 	background-color: #92A4E4;
+	display: flex;
+	flex-direction: column;
 
 }
 
@@ -610,34 +612,53 @@ a, li {
 
 .goodAnswers{
 	position: absolute;
-	top: 493px;
-	height: 376px;
-	width: 57%;
-	background-color: blue;
+	/*top: 493px;*/
+	height: 375px;
+	width: 100%;
+	background-color: #19EA25;
 	display: flex;
 	justify-content: center;
-	margin-left: 25%;
+	/*margin-left: 25%;*/
 	align-items: center;
 }
 
 .falseAnswers {
 	position: absolute;
-	top: 493px;
-	height: 376px;
-	width: 57%;
+	/*top: 493px;*/
+	height: 375px;
+	width: 100%;
 	background-color: red;
 	display: flex;
 	justify-content: center;
-	margin-left: 25%;
+	/*margin-left: 25%;*/
 	align-items: center;
 }
 
-.samuraï {
+.samurai {
 	position: absolute;
 	width: 100%;
-	height: 100%;
+	height: 850px;
+	margin-top: 100px;
 }
 
+.numberQuestion {
+	border-radius: 30px;
+	width: 60px;
+	height: 60px;
+	background: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 16%;
+
+}
+
+.bigConteneur {
+	width: 100%;
+	height: auto;
+	min-height: 1100px;
+	margin-top: 98px;
+}
 
 
 @media all and (max-width: 399px) {
