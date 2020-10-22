@@ -10,7 +10,8 @@ state={
 		
 		titleArticle: "",				
 		articles: [],
-		contenuArticle: ""
+		contenuArticle: "",
+		categorie: "monde-pro"
 		
 		
 		
@@ -27,17 +28,17 @@ state={
 		e.preventDefault();
 		//console.log(this.state);
 
-		const {titleArticle, contenuArticle} = this.state;
-		this.article(titleArticle, contenuArticle);
+		const {titleArticle, contenuArticle, categorie} = this.state;
+		this.article(titleArticle, contenuArticle, categorie);
 		
 
 	} 
 
-	handleChange = e => {
+	/*handleChange = e => {
 		
 		this.setState({ [e.target.name]: e.target.value })
 
-	}
+	}*/
 
 	
 
@@ -55,11 +56,11 @@ state={
 
 
 
-	/*handleChange = e => {
+	handleChange = e => {
 		
 		this.setState({ [e.target.name]: e.target.value })
 
-	}*/
+	}
 
 	article(titleArticle, contenuArticle, categorie) {
 		

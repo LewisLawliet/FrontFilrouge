@@ -10,8 +10,8 @@ state={
 		
 		titleArticle: "",				
 		articles: [],
-		contenuArticle: ""
-		
+		contenuArticle: "",
+		categorie: "gastronomie"
 
 	}
 
@@ -25,8 +25,8 @@ componentDidMount(){
 		e.preventDefault();
 		//console.log(this.state);
 
-		const {titleArticle, contenuArticle} = this.state;
-		this.article(titleArticle, contenuArticle);
+		const {titleArticle, contenuArticle, categorie} = this.state;
+		this.article(titleArticle, contenuArticle, categorie);
 		
 
 	} 
