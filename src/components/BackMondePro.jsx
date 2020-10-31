@@ -90,6 +90,8 @@ state={
 			if (res.status === 201) {
 				res.json().then(res => {
 					console.log("Article posté")
+					this.setState({titleArticle: ""})
+					this.setState({contenuArticle: ""})
 					this.articleGet()
 				})
 			
@@ -164,7 +166,7 @@ state={
 	articlePut(id, titleArticle, contenuArticle) {
 		
 
-		fetch("http://localhost:3200/api/societe/systeme-sco/" + id, {
+		fetch("http://localhost:3200/api/societe/monde-pro/" + id, {
 
 			method: "PUT",			
 			

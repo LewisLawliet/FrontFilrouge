@@ -144,7 +144,7 @@ class Gastronomie extends React.Component {
 
 		return ( 
 		
-			<div>						
+			<div className="tall">						
              {map}
                       
             	

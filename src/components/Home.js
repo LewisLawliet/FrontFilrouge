@@ -5,6 +5,7 @@ import ImageResponsive from './ImageResponsive';
 import ButtonSignup from './ButtonSignup';
 import ButtonLogin from './ButtonLogin';
 import ButtonLogout from './ButtonLogout';
+import QuizzSystemeSco from './QuizzSystemeSco';
 import { PropTypes } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ import  {  withRouter} from 'react-router-dom'
 
 class Home extends React.Component {
     state = {
-
+            
             button: false,
             users: [],
             wrongPasswordOrId: false,
@@ -95,7 +96,9 @@ class Home extends React.Component {
                         this.setState({wrongPasswordOrId: false})        
                                              
                                             }, 3000)
-        }     
+        }
+
+              
     }
 
     checkLocalStorage () {
@@ -110,7 +113,10 @@ class Home extends React.Component {
     }
 
     
+    quizzAccess =()=> {
 
+      this.setState({notAccess: true})
+    }
 
 
   
@@ -186,9 +192,14 @@ class Home extends React.Component {
     this.setState({button: false})
   }
 
+
+
+
  
 
     render() {
+
+      
 
       console.log(this.state.button)
           const {users} = this.state;    
@@ -225,6 +236,8 @@ class Home extends React.Component {
        const passwordIdFailed = (<div className="wrongIdorPassword"><p className = "wrongIdorPasswordP">
         Identifiant(s) ou mot de passe incorrect(s) </p></div>)
 
+      
+
        const cercleRouge = (<div className="cercleRouge"></div> )
        const cercleVert =  (<div className="cercleVert"></div> )
       
@@ -232,7 +245,7 @@ class Home extends React.Component {
 
         return (
      <div className="homeConteneur">
-    <h3 style={{marginLeft: "6%", display: "flex"}}>{this.props.connexion ? cercleVert : cercleRouge}
+    <h3 className = "statut" style={{marginLeft: "6%", display: "flex"}}>{this.props.connexion ? cercleVert : cercleRouge}
     {this.state.checkToken}</h3>
 
      {this.props.connexion ? null : <ButtonSignup emailExistant = {this.checkEmail.bind(this)} 
@@ -246,6 +259,7 @@ class Home extends React.Component {
       {this.state.success ? successMessage : null}
       {this.state.wrongPasswordOrId ? passwordIdFailed : null}   
        {this.state.button ? buttonAdmin : null} 
+       
 	     <Image />
        <ImageResponsive />
      

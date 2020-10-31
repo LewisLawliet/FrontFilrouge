@@ -79,6 +79,8 @@ componentDidMount(){
 			if (res.status === 201) {
 				res.json().then(res => {
 					console.log("Article posté")
+					this.setState({titleArticle: ""})
+					this.setState({contenuArticle: ""})
 					this.articleGet()
 				})
 

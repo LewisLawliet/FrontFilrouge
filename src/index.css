@@ -16,6 +16,7 @@ body {
 	padding: 0;
 	margin: auto;
 	width: 100%;
+	
 }
 
 
@@ -24,6 +25,10 @@ a, li {
 	text-decoration: none;
 	color: white;
 	list-style-type: none;
+}
+
+.tall {
+	min-height: 1000px;
 }
 
 /*.menu {
@@ -204,6 +209,16 @@ a, li {
 	font-size: 15px;
 	cursor: pointer;
 }
+
+.buttonNext {
+	width: 140px;
+	height: 45px;
+	background-color: black;
+	color: white;
+	font-family: 'Ribeye', cursive;
+	font-size: 15px;
+	cursor: pointer;
+} 
 
 /*button {
 
@@ -507,6 +522,25 @@ a, li {
 	width: 80%;
 }
 
+.notAccess {
+	width: 800px;
+	height: 448px;
+	background-color: red;
+	border-radius: 15px;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 322px;
+	left: 367px;
+	color: white;
+}
+
+.notAccessP {
+	width: 50%;
+	font-size: 26px;
+}
+
 .wrongCross {
 	width: 30px;
 	height: 30px;
@@ -668,13 +702,13 @@ a, li {
 			}
 
 			.conteneurOngletMenu {
-				width: 345px;
+				width: 303px;
 				height: auto;
 			}
 
 			.imglogo {
-				width: 110px;
-				height: 110px;
+				width: 90px;
+				height: 90px;
 
 			}
 
@@ -705,38 +739,45 @@ a, li {
 		.bouttonSociete {
 			width: 101px;
 			height: 46px;
+			font-size: 12px;
 		}	
 
 		.societe {
 			width: 101px;
-			height: auto;
+			height: 80px;
+			font-size: 9px;
 		}
 
 		.bouttonCulturePop {
 			width: 101px;
 			height: 46px;
+			font-size: 12px;
 		}
 
 		.culturePop {
 			width: 101px;
-			height: auto;
+			height: 80px;
+			font-size: 9px;
 		}
 
 
 		.bouttonQuizz {
 			width: 101px;
 			height: 46px;
+			font-size: 12px;
 		}
 
 		.quizz {
 			width: 101px;
-			height: auto;
+			height: 80px;
+			font-size: 9px;
 		}
 
 
 		.buttonSignup {
 			width: 101px;
 			height: 46px;
+
 		}
 
 		.buttonLogin{
@@ -746,7 +787,7 @@ a, li {
 
 
 		.contourForm {
-			width: 91px;
+			width: 101px;
 			height: auto;
 		}
 
@@ -774,6 +815,7 @@ a, li {
 
 			width: 100%;
 			height: auto;
+			max-height: 480px;
 		}
 
 		h3 {
@@ -790,9 +832,325 @@ a, li {
 			padding: 0;
 		}
 
+		.numberQuestion {
+			
+			margin-left: 0%;
+			align-items: center;
+			width: 40px;
+			height: 40px;
+		}
+
+		.quizzQuestion {
+			font-size: 10px;
+		}
+
+		.title {
+			height: 30px;
+			width: 170px;
+		}
+
+		.test {
+			margin-top: 140px;
+			width: 100%;
+			height: 300px;
+			background-color: #92A4E4;
+			display: flex;
+			flex-direction: column;
+
+			align-items: center;
+		}
+
+		.goodAnswers {
+			font-size: 10px;
+			height: 300px;
+		}
+
+		.falseAnswers {
+			font-size: 10px;
+			height: 300px
+		}
+
+		.conteneurSystemeSco {
+			font-size: 13px;
+			/*height: 300px;*/
+			height: auto;
+		}
+
+		.buttonNext {
+			width: 95px;
+			height: 30px;
+			font-size: 12px;
+		}
+
+		.question {
+			font-size: 11px;
+		}
+
+		.notAccess {
+			width: 261px;
+			height: 248px;
+			background-color: red;
+			border-radius: 15px;	
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 403px;
+			left: 21px;
+			color: white;
+		}
+
+		.notAccessP {
+			width: 89%;
+			font-size: 15px;
+		}
+
+		.msg {
+			top: 465px;
+			left: 128px;
+			width: 170px;
+			height: 106px;
+		}
+
+		.msgSuccess {
+			top: 465px;
+			left: 128px;
+			width: 170px;
+			height: 106px;
+		}
+
+		.wrongIdorPassword {
+			top: 465px;
+			left: 128px;
+			width: 170px;
+			height: 106px;
+		}	
+
 	}
 
-	@media all and (min-width: 400px) and (max-width: 799px) {
+	@media all and (min-width: 400px) and (max-width: 499px) {
+		
+
+		.imgNd {
+				width: 387px;
+				height: auto;
+			}
+
+			.imglogo {
+				width: 120px;
+				height: 120px;
+
+			}
+
+			.conteneurOngletMenu {
+				width: 303px;
+				height: auto;
+			}
+
+			.menu2 {
+				flex-direction: column;
+				align-items: center;
+				/*padding-left: 4%;*/
+			}
+
+			.logo {
+				margin-bottom: 20px;
+				margin-top: 20px;
+				margin-left: 0;
+			}	
+
+			.imgEtOngletMenu {
+			width: 387px;
+			padding-left: 0%;
+			height: auto;
+		}
+
+		.bouttonEtSonMenu {
+			width: 129px;
+			height: 35px;
+		}
+
+		.bouttonSociete {
+			width: 129px;
+			height: 35px;
+			font-size: 12px;
+		}
+
+		.societe {
+			width: 129px;
+			height: 90px;
+			font-size: 12px;
+		}
+
+		.bouttonCulturePop {
+			width: 129px;
+			height: 35px;
+			font-size: 12px;
+		}
+
+		.culturePop {
+			width: 129px;
+			height: 90px;
+			font-size: 12px;
+		}
+
+
+		.bouttonQuizz {
+			width: 129px;
+			height: 35px;
+			font-size: 12px;
+
+		}
+
+		.quizz {
+			width: 129px;
+			height: 90px;
+			font-size: 12px;
+		}
+
+		.buttonSignup {
+			width: 101px;
+			height: 46px;
+
+		}
+
+		.buttonLogin{
+			width: 101px;
+			height: 46px;
+		}
+
+		.contourForm {
+			width: 101px;
+			height: auto;
+		} 
+
+		.champsForm {
+			width: 80px;
+			height: auto;
+		}
+
+		h3 {
+			margin-top: 95px;
+		}
+
+		.imgJaponBackground {
+
+			display: none;
+		}
+
+		.imgJaponBackgroundResponsive {
+
+			width: 100%;
+			height: auto;
+			max-height: 621px;
+		}
+
+		
+
+		.ulFooter {
+			margin: 0;
+			padding: 0;
+		}
+
+		.numberQuestion {
+			
+			margin-left: 0%;
+			align-items: center;
+			width: 40px;
+			height: 40px;
+		}
+
+		.quizzQuestion {
+			font-size: 11px;
+		}
+
+		.title {
+			height: 30px;
+			width: 170px;
+		}
+
+		.test {
+			margin-top: 140px;
+			width: 100%;
+			height: 300px;
+			background-color: #92A4E4;
+			display: flex;
+			flex-direction: column;
+
+			align-items: center;
+		}
+
+		.goodAnswers {
+			font-size: 10px;
+			height: 300px;
+		}
+
+		.falseAnswers {
+			font-size: 10px;
+			height: 300px
+		}
+
+		.conteneurSystemeSco {
+			font-size: 13px;
+			/*height: 300px;*/
+			height: auto;
+		}
+
+		.buttonNext {
+			width: 95px;
+			height: 30px;
+			font-size: 12px;
+		}
+
+		.question {
+			font-size: 11px;
+		}
+
+
+		.notAccess {
+			width: 314px;
+			height: 275px;
+			background-color: red;
+			border-radius: 15px;	
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 455px;
+			left: 43px;
+			color: white;
+		}
+
+		.notAccessP {
+			width: 94%;
+			font-size: 19px;
+		}
+
+		.msg {
+			top: 465px;
+			left: 145px;
+			width: 231px;
+			height: 95px;
+		}
+
+		.msgSuccess {
+			top: 465px;
+			left: 145px;
+			width: 231px;
+			height: 95px;
+		}
+
+		.wrongIdorPassword {
+			top: 465px;
+			left: 145px;
+			width: 231px;
+			height: 95px;
+		}	
+
+
+	} 
+
+	@media all and (min-width: 500px) and (max-width: 799px) {
 		
 
 		.imgNd {
@@ -881,7 +1239,59 @@ a, li {
 			padding: 0;
 		}
 
+		.numberQuestion {
+			
+			margin-left: 0%;
+			align-items: center;
+
+		}
+
+		.test {
+			
+
+			align-items: center;
+		}
+
+		.notAccess {
+			width: 421px;
+			height: 365px;
+			background-color: red;
+			border-radius: 15px;	
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 508px;
+			left: 100px;
+			color: white;
+		}
+
+		.notAccessP {
+			width: 79%;
+			font-size: 22px;
+		}
+
+		.msg {
+			top: 515px;
+			left: 200px;
+			width: 325px;
+		}
+
+		.msgSuccess {
+			top: 515px;
+			left: 200px;
+			width: 325px;
+		}
+
+		.wrongIdorPassword {
+			top: 515px;
+			left: 200px;
+			width: 325px;
+		}
+
 	} 
+
+	
 
 	@media all and (min-width: 800px) and (max-width: 1280px) {
 		
@@ -925,35 +1335,35 @@ a, li {
 
 		.bouttonSociete {
 			width: 250px;
-			height: auto;
+			height: 45px;
 		}
 
 		.societe {
 			width: 250px;
-			height: auto;
+			height: 90px;
 		}
 
 		.bouttonCulturePop {
 			width: 250px;
-			height: auto;
+			height: 45px;
 
 		}
 
 		.culturePop {
 			width: 250px;
-			height: auto;
+			height: 90px;
 		}
 
 
 		.bouttonQuizz {
 			width: 250px;
-			height: auto;
+			height: 45px;
 
 		}
 
 		.quizz {
 			width: 250px;
-			height: auto;
+			height: 90px;
 		}
 
 		.imgJaponBackgroundResponsive {
@@ -964,6 +1374,60 @@ a, li {
 		.ulFooter {
 			margin: 0;
 			padding: 0;
+		}
+
+		.numberQuestion {
+			
+			margin-left: 0%;
+			align-items: center;
+
+		}
+
+		.test {
+			margin-top: 140px;
+			width: 100%;
+			height: 375px;
+			background-color: #92A4E4;
+			display: flex;
+			flex-direction: column;
+
+			align-items: center;
+		}
+
+		.notAccess {
+			width: 600px;
+			height: 400px;
+			background-color: red;
+			border-radius: 15px;	
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 565px;
+			left: 248px;
+			color: white;
+		}
+
+		.notAccessP {
+			width: 53%;
+			font-size: 21px;
+		}
+
+		.msg {
+			top: 515px;
+		}
+
+		.msgSuccess {
+			top: 515px;
+		}
+
+		.wrongIdorPassword {
+			top: 515px;
+		}
+
+		.statut {
+
+			margin-top: 110px;
 		}
 
 	} 

@@ -1,10 +1,9 @@
 import React from "react";
 import "../index.css";
-import GenerateQuiz from "generate-quiz";
-import Home from "./Home";
 
 
-class QuizzSystemeSco extends React.Component {
+
+class QuizzMondePro extends React.Component {
 
 state={
 
@@ -20,7 +19,6 @@ state={
 		gradeAppears: null,
 		correctAnswer: "",
 		notAccess: false,
-		
 	}
 
 	componentDidMount = () => {
@@ -216,7 +214,7 @@ state={
 
 	questionPost = (reponse) => {
 		const id = document.getElementsByClassName("question")[0].getAttribute("id");
-		fetch("http://localhost:3200/api/quizz/systeme-sco/" + id, {
+		fetch("http://localhost:3200/api/quizz/monde-pro/" + id, {
 
 			method: "POST",	
 
@@ -283,7 +281,7 @@ state={
 	questionGet(libelle) {
 		
 
-		fetch("http://localhost:3200/api/theme-quizz/systeme-sco", {
+		fetch("http://localhost:3200/api/theme-quizz/monde-pro", {
 
 			method: "GET",			
 			
@@ -331,7 +329,6 @@ state={
 
 				
 	}
-
 
 	redirection = () => {
 		setTimeout(()=> {
@@ -384,7 +381,7 @@ state={
 									
 					const questionFilter = questions.filter((question) => {
 
-					return question.categorie === "systeme-sco"			
+					return question.categorie === "monde-pro"			
 
 				})
 
@@ -433,8 +430,8 @@ state={
 		return(
 
 
-		<div className="bigConteneur">	
-		{this.state.notAccess ? quizz : null} 
+		<div className="bigConteneur">
+		{this.state.notAccess ? quizz : null} 	
 		 {this.state.gradeAppears !== null ? this.state.gradeAppears : null}
 			<div className="conteneurQuizzSystemeSco" id="conteneurQuizzSystemeSco">
 				
@@ -452,4 +449,4 @@ state={
 
 }
 
-export default QuizzSystemeSco;
+export default QuizzMondePro;

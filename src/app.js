@@ -11,6 +11,9 @@ import Gastronomie from "./components/Gastronomie";
 import Technologie from "./components/Technologie";
 import Contact from "./components/Contact";
 import QuizzSystemeSco from "./components/QuizzSystemeSco";
+import QuizzMondePro from "./components/QuizzMondePro";
+import QuizzGastronomie from "./components/QuizzGastronomie";
+import QuizzTechnologie from "./components/QuizzTechnologie";
 import BackAdmin from "./components/BackAdmin";
 import ReactDom from 'react-dom';
 import { PropTypes } from 'react';
@@ -25,6 +28,7 @@ class App extends React.Component {
 constructor(props){
     super(props)
     this.state = {
+
         connecte: false,
         storage: false
         
@@ -52,10 +56,25 @@ componentDidMount(){
         }
     }
 
+    componentDidUpdate =()=> {
+
+
+
+            if(localStorage.getItem("jwt") && this.state.connecte === true) { 
+                    setTimeout(()=> {
+                            localStorage.removeItem("jwt")       
+                            this.setState({connecte: false})                             
+                                                        }, 7200000)
+                    //this.setState({connecte: false})
+                }    
+        
+    }
+
+    
 
 
     render() {
-        
+       
         return (
             <Router>
             
@@ -75,6 +94,9 @@ componentDidMount(){
                     <Route path="/technologie" component={Technologie} />
                     <Route path="/contact" component={Contact} />
                     <Route path="/quizz-systeme-sco" component={QuizzSystemeSco} />
+                    <Route path="/quizz-monde-pro" component={QuizzMondePro} />
+                    <Route path="/quizz-gastronomie" component={QuizzGastronomie} />
+                    <Route path="/quizz-technologie" component={QuizzTechnologie} />
                     <Route path="/baback" component={BackAdmin} />
                     <Route path="/backsystemesco" component={BackSystemeSco} />
                     <Route path="/backmondepro" component={BackMondePro} />

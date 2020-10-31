@@ -99,7 +99,7 @@ class MondePro extends React.Component {
 
 		return ( 
 		
-			<div>						
+			<div className="tall">						
              {map}
                       
             	
