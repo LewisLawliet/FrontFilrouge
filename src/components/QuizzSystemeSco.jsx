@@ -319,7 +319,7 @@ state={
 				console.log("Question non get fréro")
 				
 				this.setState({notAccess: true})
-				//this.redirection()
+				this.redirection()
 				
 
 			}
