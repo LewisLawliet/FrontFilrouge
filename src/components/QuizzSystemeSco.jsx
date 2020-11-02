@@ -2,6 +2,7 @@ import React from "react";
 import "../index.css";
 import GenerateQuiz from "generate-quiz";
 import Home from "./Home";
+import {proxy} from "../utilis";
 
 
 class QuizzSystemeSco extends React.Component {
@@ -283,7 +284,7 @@ state={
 	questionGet(libelle) {
 		
 
-		fetch("http://localhost:3200/api/theme-quizz/systeme-sco", {
+		fetch(proxy + "/api/theme-quizz/systeme-sco", {
 
 			method: "GET",			
 			
@@ -318,7 +319,7 @@ state={
 				console.log("Question non get fréro")
 				
 				this.setState({notAccess: true})
-				this.redirection()
+				//this.redirection()
 				
 
 			}
@@ -376,6 +377,8 @@ state={
 	}
 
 	render() {
+
+		console.log(proxy)
 
 			const quizz = (<div className="notAccess"><p className = "notAccessP">
         Connecte-toi pour te tester ! </p></div>)
