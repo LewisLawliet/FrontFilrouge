@@ -1,3 +1,3 @@
 
-export const proxy = "https://murmuring-shelf-81857.herokuapp.com/";
+export const proxy = "https://murmuring-shelf-81857.herokuapp.com";
 
