@@ -1,6 +1,7 @@
 import React from 'react';
 import '../index.css';
 import { Link } from 'react-router-dom';
+import {proxy} from "../utilis"
 
 
 class BackMondePro extends React.Component {
@@ -65,7 +66,7 @@ state={
 	article(titleArticle, contenuArticle, categorie) {
 		
 
-		fetch("http://localhost:3200/api/societe/monde-pro", {
+		fetch(proxy + "/api/societe/monde-pro", {
 
 			method: "POST",			
 			
@@ -114,7 +115,7 @@ state={
      articleGet(titleArticle, contenuArticle, categorie) {
 		
 
-		fetch("http://localhost:3200/api/societe/monde-pro", {
+		fetch(proxy + "/api/societe/monde-pro", {
 
 			method: "GET",
 
@@ -166,7 +167,7 @@ state={
 	articlePut(id, titleArticle, contenuArticle) {
 		
 
-		fetch("http://localhost:3200/api/societe/monde-pro/" + id, {
+		fetch(proxy + "/api/societe/monde-pro/" + id, {
 
 			method: "PUT",			
 			
@@ -220,7 +221,7 @@ state={
 	articleDelete(id) {
 		
 
-		fetch("http://localhost:3200/api/societe/monde-pro/" + id, {
+		fetch(proxy + "/api/societe/monde-pro/" + id, {
 
 			method: "DELETE",
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../index.css';
 import { Link } from 'react-router-dom';
+import {proxy} from "../utilis"
 
 
 class BackGastronomie extends React.Component {
@@ -54,7 +55,7 @@ componentDidMount(){
 	article(titleArticle, contenuArticle, categorie) {
 		
 
-		fetch("http://localhost:3200/api/culture-pop/gastronomie", {
+		fetch(proxy + "/api/culture-pop/gastronomie", {
 
 			method: "POST",			
 			
@@ -107,7 +108,7 @@ componentDidMount(){
      articleGet(titleArticle, contenuArticle, categorie) {
 		
 
-		fetch("http://localhost:3200/api/culture-pop/gastronomie", {
+		fetch(proxy+"/api/culture-pop/gastronomie", {
 
 			method: "GET",			
 			
@@ -156,7 +157,7 @@ componentDidMount(){
 	articlePut(id, articles) {
 		
 
-		fetch("http://localhost:3200/api/societe/gastronomie/" + id, {
+		fetch(proxy+"/api/societe/gastronomie/" + id, {
 
 			method: "PUT",			
 			
@@ -211,7 +212,7 @@ componentDidMount(){
 	articleDelete(id) {
 		
 
-		fetch("http://localhost:3200/api/culture-pop/gastronomie/" + id, {
+		fetch(proxy+"/api/culture-pop/gastronomie/" + id, {
 
 			method: "DELETE",
 

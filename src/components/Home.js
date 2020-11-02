@@ -8,6 +8,7 @@ import ButtonLogout from './ButtonLogout';
 import QuizzSystemeSco from './QuizzSystemeSco';
 import { PropTypes } from 'react';
 import { Link } from 'react-router-dom';
+import {proxy} from "../utilis"
 
 
 import  {  withRouter} from 'react-router-dom'
@@ -142,7 +143,7 @@ class Home extends React.Component {
     userGet = (admin, grade) => {
     
 
-    fetch("http://localhost:3200/api/button/admin", {
+    fetch(proxy+"/api/button/admin", {
 
       method: "GET",      
       

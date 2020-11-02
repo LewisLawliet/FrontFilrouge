@@ -1,6 +1,7 @@
 import React from "react";
 import "../index.css";
-import BackAdmin from "./BackAdmin"
+import BackAdmin from "./BackAdmin";
+import {proxy} from "../utilis";
 
 class SystemeSco extends React.Component {
 	state={
@@ -19,7 +20,7 @@ class SystemeSco extends React.Component {
 	articleGet(titleArticle, contenuArticle) {
 		const jwt = localStorage.getItem("jwt")
 		
-		fetch("http://localhost:3200/api/societe/systeme-sco", {
+		fetch(proxy + "/api/societe/systeme-sco", {
 
 			method: "GET",			
 			
@@ -68,7 +69,7 @@ class SystemeSco extends React.Component {
 	articleDelete(id) {
 		
 
-		fetch("http://localhost:3200/api/societe/systeme-sco/" + id, {
+		fetch(proxy + "/api/societe/systeme-sco/" + id, {
 
 			method: "DELETE",
 

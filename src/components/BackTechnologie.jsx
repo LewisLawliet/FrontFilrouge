@@ -1,6 +1,7 @@
 import React from 'react';
 import '../index.css';
 import { Link } from 'react-router-dom';
+import {proxy} from "../utilis"
 
 
 class BackTechnologie extends React.Component {
@@ -54,7 +55,7 @@ componentDidMount(){
 	article(titleArticle, contenuArticle, categorie) {
 		
 
-		fetch("http://localhost:3200/api/culture-pop/technologie", {
+		fetch(proxy + "/api/culture-pop/technologie", {
 
 			method: "POST",			
 			
@@ -105,7 +106,7 @@ componentDidMount(){
      articleGet(titleArticle, contenuArticle, categorie) { 
 		
 
-		fetch("http://localhost:3200/api/culture-pop/technologie", {
+		fetch(proxy + "/api/culture-pop/technologie", {
 
 			method: "GET",			
 			
@@ -155,7 +156,7 @@ componentDidMount(){
 		
 					
 
-		fetch("http://localhost:3200/api/culture-pop/technologie/" + id,{
+		fetch(proxy + "/api/culture-pop/technologie/" + id,{
 			
 			
 			method: "PUT",			
@@ -215,7 +216,7 @@ componentDidMount(){
 	articleDelete(id) {
 		
 
-		fetch("http://localhost:3200/api/culture-pop/technologie/" + id, {
+		fetch(proxy + "/api/culture-pop/technologie/" + id, {
 
 			method: "DELETE",
 

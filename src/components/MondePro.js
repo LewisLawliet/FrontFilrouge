@@ -1,5 +1,6 @@
 import React from "react";
 import "../index.css";
+import {proxy} from "../utilis"
 
 class MondePro extends React.Component {
 		state={
@@ -18,7 +19,7 @@ class MondePro extends React.Component {
 	articleGet(titleArticle, contenuArticle) {
 		
 
-		fetch("http://localhost:3200/api/societe/monde-pro", {
+		fetch(proxy + "/api/societe/monde-pro", {
 
 			method: "GET",			
 			

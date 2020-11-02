@@ -1,5 +1,6 @@
 import React from "react";
 import "../index.css";
+import {proxy} from "../utilis"
 
 class Gastronomie extends React.Component {
 	state={
@@ -18,7 +19,7 @@ class Gastronomie extends React.Component {
 	articleGet(titleArticle, contenuArticle) {
 		
 
-		fetch("http://localhost:3200/api/culture-pop/gastronomie", {
+		fetch(proxy + "/api/culture-pop/gastronomie", {
 
 			method: "GET",			
 			

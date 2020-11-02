@@ -4,6 +4,7 @@ import BackSystemeSco from "../components/BackSystemeSco";
 import BackMondePro from "../components/BackMondePro";
 import BackGastronomie from "../components/BackGastronomie";
 import BackTechnologie from "../components/BackTechnologie";
+import {proxy} from "../utilis"
 
 
 import { Link } from 'react-router-dom';
@@ -20,7 +21,7 @@ class BackAdmin extends React.Component {
 	userGet = (admin, grade) => {
     
 
-    fetch("http://localhost:3200/api/button/admin", {
+    fetch(proxy+"/api/button/admin", {
 
      method: "GET",      
       

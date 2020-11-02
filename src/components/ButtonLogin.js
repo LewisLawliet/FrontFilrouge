@@ -1,6 +1,8 @@
 import React from 'react';
 import '../index.css';
 import FormulaireConnexion from "./FormulaireConnexion";
+import {proxy} from "../utilis";
+
 
 class ButtonLogin extends React.Component {
 	state = {

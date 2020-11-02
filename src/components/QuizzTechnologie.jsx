@@ -1,5 +1,6 @@
 import React from "react";
 import "../index.css";
+import {proxy} from "../utilis"
 
 
 
@@ -214,7 +215,7 @@ state={
 
 	questionPost = (reponse) => {
 		const id = document.getElementsByClassName("question")[0].getAttribute("id");
-		fetch("http://localhost:3200/api/quizz/technologie/" + id, {
+		fetch(proxy + "/api/quizz/technologie/" + id, {
 
 			method: "POST",	
 
@@ -281,7 +282,7 @@ state={
 	questionGet(libelle) {
 		
 
-		fetch("http://localhost:3200/api/theme-quizz/technologie", {
+		fetch(proxy + "/api/theme-quizz/technologie", {
 
 			method: "GET",			
 			

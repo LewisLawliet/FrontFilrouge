@@ -1,4 +1,5 @@
 import React from "react";
+import {proxy} from "../utilis";
 
 class FormulaireInscription extends React.Component {
 	state = {
@@ -34,7 +35,7 @@ class FormulaireInscription extends React.Component {
 	signup(username, password, email){
 		
 
-		fetch("http://localhost:3200/api/auth/signup", {
+		fetch(proxy+"/api/auth/signup", {
 
 			method: "POST",			
 			

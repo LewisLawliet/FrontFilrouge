@@ -217,7 +217,7 @@ state={
 
 	questionPost = (reponse) => {
 		const id = document.getElementsByClassName("question")[0].getAttribute("id");
-		fetch("http://localhost:3200/api/quizz/systeme-sco/" + id, {
+		fetch(proxy + "/api/quizz/systeme-sco/" + id, {
 
 			method: "POST",	
 

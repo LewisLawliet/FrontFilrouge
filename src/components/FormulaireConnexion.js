@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonLogin from "./ButtonLogin";
+import {proxy} from "../utilis";
 
 class FormulaireConnexion extends React.Component {
 	constructor(props){
@@ -44,7 +45,7 @@ class FormulaireConnexion extends React.Component {
 	login(username, password, email){
 		
 
-		fetch("http://localhost:3200/api/auth/login", {
+		fetch(proxy + "/api/auth/login", {
 
 			method: "POST",			
 			

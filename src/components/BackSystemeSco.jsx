@@ -1,6 +1,7 @@
 import React from 'react';
 import '../index.css';
 import { Link } from 'react-router-dom';
+import {proxy} from "../utilis"
 
 
 class BackSystemeSco extends React.Component {
@@ -54,7 +55,7 @@ componentDidMount(){
 	article(titleArticle, contenuArticle, categorie) {
 		
 
-		fetch("http://localhost:3200/api/societe/systeme-sco", {
+		fetch(proxy + "/api/societe/systeme-sco", {
 
 			method: "POST",			
 			
@@ -107,7 +108,7 @@ componentDidMount(){
      articleGet(titleArticle, contenuArticle, categorie) {
 		
 
-		fetch("http://localhost:3200/api/societe/systeme-sco", {
+		fetch(proxy + "/api/societe/systeme-sco", {
 
 			method: "GET",			
 			
@@ -156,7 +157,7 @@ componentDidMount(){
 	articlePut(id, titleArticle, contenuArticle) {
 		
 
-		fetch("http://localhost:3200/api/societe/systeme-sco/" + id, {
+		fetch(proxy + "/api/societe/systeme-sco/" + id, {
 
 			method: "PUT",			
 			
@@ -210,7 +211,7 @@ componentDidMount(){
 	articleDelete(id) {
 		
 
-		fetch("http://localhost:3200/api/societe/systeme-sco/" + id, {
+		fetch(proxy + "/api/societe/systeme-sco/" + id, {
 
 			method: "DELETE",
 

@@ -1,5 +1,6 @@
 import React from "react";
 import "../index.css";
+import {proxy} from "../utilis"
 
 class Technologie extends React.Component {
 	state={
@@ -18,7 +19,7 @@ class Technologie extends React.Component {
 	articleGet(titleArticle, contenuArticle) {
 		
 
-		fetch("http://localhost:3200/api/culture-pop/technologie", {
+		fetch(proxy + "/api/culture-pop/technologie", {
 
 			method: "GET",			
 			
@@ -64,7 +65,7 @@ class Technologie extends React.Component {
 	articleDelete(id) {
 		
 
-		fetch("http://localhost:3200/api/culture-pop/technologie/" + id, {
+		fetch(proxy + "/api/culture-pop/technologie/" + id, {
 
 			method: "DELETE",
 
