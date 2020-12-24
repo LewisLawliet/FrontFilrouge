@@ -110,7 +110,7 @@ class FormulaireInscription extends React.Component {
 			        className = "champsForm" placeholder="Name" required minLength="4" /><br />  
 
 			       <input type="password" name="password" onChange={this.handleChange.bind(this)}
-			        className = "champsForm" placeholder="Choose password" required minLength="4" /><br />
+			        className = "champsForm" placeholder="Choose password" required minLength="8" /><br />
 
 			       <input type="email" name="email" onChange={this.handleChange.bind(this)}
 			        className = "champsForm" placeholder="Choose email" required /><br />
