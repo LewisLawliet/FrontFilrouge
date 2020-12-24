@@ -113,14 +113,14 @@ class FormulaireConnexion extends React.Component {
 			
 			<form className="contourForm" onSubmit={this.handleClick}>			   
 			       
-			       {/*<input type="text" name="username" placeholder="Name" 
-			       onChange={this.handleChange.bind(this)} className = "champsForm" required minLength="4" /><br />*/}    	
+			       <input type="text" name="username" placeholder="Name" 
+			       onChange={this.handleChange.bind(this)} className = "champsForm" required minLength="4" /><br />    	
 
 			       <input type="password" name="password" placeholder="Your password" autoComplete="current-password"
 			        onChange={this.handleChange.bind(this)} className = "champsForm" required minLength="4" /><br />
 
-			       <input type="email" name="email" placeholder="email"
-			       onChange={this.handleChange.bind(this)} className = "champsForm" required /><br />
+			       {/*<input type="email" name="email" placeholder="email"
+			       onChange={this.handleChange.bind(this)} className = "champsForm" required /><br />*/}
 
 			       <button className = "champsForm envoyer">Envoyer</button>
 			   		
